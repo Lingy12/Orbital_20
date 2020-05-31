@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B86908052483BFDC00214F82 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86908042483BFDC00214F82 /* Assignment.swift */; };
+		B86908072483C07800214F82 /* AssignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86908062483C07800214F82 /* AssignmentViewModel.swift */; };
 		B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8755476247225F5005E2E47 /* AppDelegate.swift */; };
 		B8755479247225F5005E2E47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8755478247225F5005E2E47 /* SceneDelegate.swift */; };
 		B875547C247225F5005E2E47 /* Orbital_20.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B875547A247225F5005E2E47 /* Orbital_20.xcdatamodeld */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B86908042483BFDC00214F82 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		B86908062483C07800214F82 /* AssignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewModel.swift; sourceTree = "<group>"; };
 		B8755473247225F5005E2E47 /* Orbital_20.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orbital_20.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8755476247225F5005E2E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8755478247225F5005E2E47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B86908002483BDCE00214F82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B86908042483BFDC00214F82 /* Assignment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B86908082483C07E00214F82 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B86908062483C07800214F82 /* AssignmentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B86908092483C09200214F82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B875547D247225F5005E2E47 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B869080A2483C5D600214F82 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		B875546A247225F5005E2E47 = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +95,10 @@
 			children = (
 				B8755476247225F5005E2E47 /* AppDelegate.swift */,
 				B8755478247225F5005E2E47 /* SceneDelegate.swift */,
-				B875547D247225F5005E2E47 /* ContentView.swift */,
+				B869080A2483C5D600214F82 /* Core Data */,
+				B86908092483C09200214F82 /* View */,
+				B86908082483C07E00214F82 /* ViewModel */,
+				B86908002483BDCE00214F82 /* Model */,
 				B875547F247225F8005E2E47 /* Assets.xcassets */,
 				B8755484247225F8005E2E47 /* LaunchScreen.storyboard */,
 				B8755487247225F8005E2E47 /* Info.plist */,
@@ -152,7 +190,9 @@
 				B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */,
 				B875547C247225F5005E2E47 /* Orbital_20.xcdatamodeld in Sources */,
 				B875547E247225F5005E2E47 /* ContentView.swift in Sources */,
+				B86908052483BFDC00214F82 /* Assignment.swift in Sources */,
 				B8755479247225F5005E2E47 /* SceneDelegate.swift in Sources */,
+				B86908072483C07800214F82 /* AssignmentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
