@@ -13,32 +13,34 @@ import Foundation
 
 class Manage:ObservableObject {
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Assignment.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Assignment>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
     
     //MARK: -Basic functionality
-    func addAssignment(due date:Date,_ name:String,at plan:Date,for time:Int16) {
-        let newAssignment = Assignment(context: context)
+    func addTask(due date:Date,_ name:String,at plan:Date,for time:Int16) {
+        let newAssignment = Task(context: context)
         newAssignment.isComplete = false
         newAssignment.hasStarted = false
         newAssignment.planTime = time
         newAssignment.name = name
         newAssignment.planDate = plan
-        newAssignment.remainingTime = time
+        newAssignment.remainning = time
+        newAssignment.extendCount = 0
         try? self.context.save()
     }
     
-    func setPlan(for assignment:Assignment,to date:Date) {
+    
+    func setPlan(for task:Task,to date:Date) {
         self.objectWillChange.send()
         context.perform {
-            assignment.planDate = date
+            task.planDate = date
              try? self.context.save()
         }
     }
     
-    func setTimer(for assignment:Assignment, _ time: Int16) {
+    func setTimer(for task:Task, _ time: Int16) {
         self.objectWillChange.send()
         context.perform {
-            assignment.planTime = time
+            task.planTime = time
             try? self.context.save()
         }
     }
@@ -55,14 +57,25 @@ class Manage:ObservableObject {
         
     }
     
-    func delete(_ assignment:Assignment) {
+    func delete(_ task:Task) {
         self.objectWillChange.send()
-        let chosenIndex = assignmentList.firstIndex(of: assignment)!
+        let chosenIndex = assignmentList.firstIndex(of: task)!
         
         context.perform {
             self.context.delete(self.assignmentList[chosenIndex])
             try? self.context.save()
         }
+    }
+    
+    func extends(_ task: Task,for time:Int16) {
+        self.objectWillChange.send()
+       
+        context.perform {
+            task.extendCount += 1
+            task.planTime += time
+            try? self.context.save()
+        }
+        
     }
     
     //MARK: - Transformation for time representation
@@ -73,4 +86,5 @@ class Manage:ObservableObject {
     func minuteRepresent(_ clock:(Int16,Int16)) -> Int16 {
         return clock.0 * 60 + clock.1
     }
+    
 }
