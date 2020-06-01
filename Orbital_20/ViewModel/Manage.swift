@@ -4,7 +4,9 @@
 //
 //  Created by Jerry Lin on 1/6/20.
 //  Copyright © 2020 Jerry Lin. All rights reserved.
-//
+
+
+//Class Manage is used to manage the activity of the application
 
 import SwiftUI
 import Foundation
@@ -13,6 +15,7 @@ class Manage:ObservableObject {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Assignment.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Assignment>
     
+    //MARK: -Basic functionality
     func addAssignment(due date:Date,_ name:String,at plan:Date,for time:Int16) {
         let newAssignment = Assignment(context: context)
         newAssignment.isComplete = false
@@ -32,7 +35,7 @@ class Manage:ObservableObject {
         }
     }
     
-    func setTime(for assignment:Assignment, _ time: Int16) {
+    func setTimer(for assignment:Assignment, _ time: Int16) {
         self.objectWillChange.send()
         context.perform {
             assignment.planTime = time
@@ -62,7 +65,7 @@ class Manage:ObservableObject {
         }
     }
     
-    
+    //MARK: - Transformation for time representation
     func clockRepresent(_ miniute:Int16) -> (Int16,Int16){
         return (miniute/60, miniute%60)
     }
