@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AppControl" representedClassName="AppControl" syncable="YES" codeGenerationType="class">
-        <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="username" optional="YES" attributeType="String"/>
-    </entity>
     <entity name="Assignment" representedClassName="Assignment" syncable="YES" codeGenerationType="class">
         <attribute name="deadline" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hasStarted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="Module" representedClassName="Module" syncable="YES" codeGenerationType="class">
-        <attribute name="timeUsage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-    </entity>
-    <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
-        <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="planStart" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="timeToComplete" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="planDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startTIme" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-27" positionY="18" width="128" height="103"/>
-        <element name="Assignment" positionX="18" positionY="90" width="128" height="88"/>
-        <element name="AppControl" positionX="54" positionY="135" width="128" height="73"/>
-        <element name="Module" positionX="18" positionY="90" width="128" height="58"/>
+        <element name="Assignment" positionX="18" positionY="90" width="128" height="133"/>
     </elements>
 </model>
