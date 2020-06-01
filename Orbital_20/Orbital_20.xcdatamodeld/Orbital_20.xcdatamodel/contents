@@ -6,9 +6,10 @@
         <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="planDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="startTIme" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="planTime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="remainingTime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Assignment" positionX="18" positionY="90" width="128" height="133"/>
+        <element name="Assignment" positionX="18" positionY="90" width="128" height="148"/>
     </elements>
 </model>
