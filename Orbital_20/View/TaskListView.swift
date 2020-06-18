@@ -13,7 +13,6 @@ struct TaskListView: View {
     
     var body: some View {
         ZStack {
-            
             //Navigation view
             NavigationView {
                 List {

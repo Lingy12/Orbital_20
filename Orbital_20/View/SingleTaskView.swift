@@ -19,7 +19,6 @@ struct SingleTaskView: View {
                 Text(deadline).font(.caption)
             }
         }
-        
     }
 }
 
