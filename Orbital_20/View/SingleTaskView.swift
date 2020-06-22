@@ -20,8 +20,6 @@ struct SingleTaskView: View {
             }
             
             Spacer()
-            
-            Text(task.modName!).opacity(0.7)
         }
     }
     

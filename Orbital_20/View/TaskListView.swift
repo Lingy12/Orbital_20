@@ -12,6 +12,7 @@ struct TaskListView: View {
     
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
+
     @State var showCreation = false
     @State var TaskName = ""
     @State var dueDate = Date()
@@ -37,7 +38,9 @@ struct TaskListView: View {
                         }.font(.headline)
                         
                         Section(header: Text("Tasks")) {
-                          Text("Mod")
+                            ForEach(self.assignmentList,id: \.self) { assignment in
+                                SingleTaskView(task: assignment)
+                            }.onDelete(perform: deleteTask)
                         }
                     }
                     .navigationBarTitle(Text("My Task List"))
@@ -54,6 +57,7 @@ struct TaskListView: View {
                     Section {
                         Button(action: {
                             self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
+                            self.showCreation.toggle()
                         }) {
                             Text("save")
                         }
@@ -63,8 +67,14 @@ struct TaskListView: View {
             }
         }
     }
-    
-    func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
+    private func deleteTask(indexSet:IndexSet) {
+        for index in indexSet {
+            let itemToDelete = assignmentList[index]
+            context.delete(itemToDelete)
+        }
+        try? self.context.save()
+    }
+    private func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
         let newAssignment = Task(context: context)
         newAssignment.isComplete = false
         newAssignment.hasStarted = false
