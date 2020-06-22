@@ -36,9 +36,7 @@ struct TaskListView: View {
                         }.font(.headline)
                         
                         Section(header: Text("Tasks")) {
-                            ForEach(self.manage.assignmentList,id: \.self) { task in
-                                SingleTaskView(task: task)
-                            }
+                          Text("Mod")
                         }
                     }
                     .navigationBarTitle(Text("My Task List"))
@@ -56,7 +54,7 @@ struct TaskListView: View {
                         Button(action: {
                             self.manage.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
                         }) {
-                            Text("safe")
+                            Text("save")
                         }
                     }
                 }

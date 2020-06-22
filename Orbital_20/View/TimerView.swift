@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct TimerView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+    @State var timeRemaining:Int16
+       let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+       var body: some View {
+           Text("\(timeRemaining)")
+               .onReceive(timer) { _ in
+                   if self.timeRemaining > 0 {
+                       self.timeRemaining -= 1
+                   }
+               }
+       }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(timeRemaining:60)
     }
 }

@@ -11,12 +11,26 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            NavigationLink(destination: StudyView()) {
-                Text("Current working")
-            }
-            
-            NavigationLink(destination:TaskListView()) {
-                Text("Go to task list")
+            VStack {
+                NavigationLink(destination: StudyView()) {
+                    Text("Current working")
+                        .font(.title)
+                        .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
+                        .frame(alignment: .center)
+                    
+                }.padding()
+                    .foregroundColor(.blue)
+                
+                NavigationLink(destination:TaskListView()) {
+                    Text("Go to task list")
+                        .font(.title)
+                        .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
+                        .frame( alignment: .center)
+                    
+                }
+            .padding()
+                .foregroundColor(.blue)
+                
             }
         }
     }
