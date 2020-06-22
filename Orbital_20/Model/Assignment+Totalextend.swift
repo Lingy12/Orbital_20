@@ -6,10 +6,3 @@
 //  Copyright © 2020 Jerry Lin. All rights reserved.
 //
 
-import Foundation
-
-extension Assignment {
-    func getTotalExtend() -> Int16{
-        
-    }
-}

@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @State private var newTask = ""
+    
+    @ObservedObject var manage = Manage()
     
     var body: some View {
         ZStack {
@@ -18,7 +19,7 @@ struct TaskListView: View {
                 List {
                     Section(header: Text ("Add new task")) {
                         HStack {
-                            TextField("Task Name", text: self.$newTask)
+                            TextField("Task Name", text: <#Binding<String>#>)
                             Button(action: {
                                 // TODO:type in task and bing to newTask
                                 // newTask = ...
@@ -31,7 +32,7 @@ struct TaskListView: View {
                     }.font(.headline)
                     
                     Section(header: Text("Tasks")) {
-                        TaskView(title: "Orbital", deadline: "tomorrow")
+                        SingleTaskView(title: "Orbital", deadline: "tomorrow")
                     }
                 }
                 .navigationBarTitle(Text("My Task List"))
