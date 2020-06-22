@@ -9,21 +9,28 @@
 import SwiftUI
 
 struct SingleTaskView: View {
-    var title: String = ""
-    var deadline: String = ""
+    
+    var task:Task
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(title).font(.headline)
-                Text(deadline).font(.caption)
+                Text(task.name!).font(.headline)
+                Text(dateToTime(date: task.due!)).font(.caption)
             }
+            
+            Spacer()
+            
+            Text(task.modName!).opacity(0.7)
         }
+    }
+    
+    func dateToTime(date:Date) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-mm-dd"
+        let time = df.string(from: date)
+        return time
     }
 }
 
-struct SingleTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingleTaskView(title: "Orbital", deadline: "tomorrow")
-    }
-}
+

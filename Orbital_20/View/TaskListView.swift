@@ -36,7 +36,9 @@ struct TaskListView: View {
                         }.font(.headline)
                         
                         Section(header: Text("Tasks")) {
-                            SingleTaskView(title: "Orbital", deadline: "tomorrow")
+                            ForEach(self.manage.assignmentList,id: \.self) { task in
+                                SingleTaskView(task: task)
+                            }
                         }
                     }
                     .navigationBarTitle(Text("My Task List"))

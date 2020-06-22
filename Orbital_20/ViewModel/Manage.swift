@@ -20,6 +20,7 @@ class Manage:ObservableObject {
         let newAssignment = Task(context: context)
         newAssignment.isComplete = false
         newAssignment.hasStarted = false
+        newAssignment.due = date
         newAssignment.planTime = time
         newAssignment.name = name
         newAssignment.planDate = plan
