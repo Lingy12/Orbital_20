@@ -19,7 +19,6 @@ struct TaskListView: View {
                 List {
                     Section(header: Text ("Add new task")) {
                         HStack {
-                            TextField("Task Name", text: <#Binding<String>#>)
                             Button(action: {
                                 // TODO:type in task and bing to newTask
                                 // newTask = ...
