@@ -10,8 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Begin your day")
-       // NavigationLink("View your task", destination: TaskListView)
+        NavigationView {
+            NavigationLink(destination: StudyView()) {
+                Text("Current working")
+            }
+            
+            NavigationLink(destination:TaskListView()) {
+                Text("Go to task list")
+            }
+        }
     }
 }
 
