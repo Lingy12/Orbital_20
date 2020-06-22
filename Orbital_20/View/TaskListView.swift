@@ -10,7 +10,8 @@ import SwiftUI
 
 struct TaskListView: View {
     
-    @ObservedObject var manage = Manage()
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
     @State var showCreation = false
     @State var TaskName = ""
     @State var dueDate = Date()
@@ -52,7 +53,7 @@ struct TaskListView: View {
                     
                     Section {
                         Button(action: {
-                            self.manage.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
+                            self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
                         }) {
                             Text("save")
                         }
@@ -61,6 +62,18 @@ struct TaskListView: View {
                 
             }
         }
+    }
+    
+    func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
+        let newAssignment = Task(context: context)
+        newAssignment.isComplete = false
+        newAssignment.hasStarted = false
+        newAssignment.planTime = time
+        newAssignment.due = date
+        newAssignment.name = name
+        newAssignment.planDate = plan
+        newAssignment.extendCount = 0
+        try? self.context.save()
     }
 }
 
