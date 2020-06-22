@@ -45,16 +45,20 @@ struct TaskListView: View {
                     .navigationBarItems(trailing: EditButton())
                 }
             } else {
-                Button(action: {
-                    self.manage.addTask(due: self.dueDate, self.TaskName, at: self.planDate, for: Int16(self.completeTime) ?? 0)
-                    }, label: {Text("Save")})
-                    .frame(width: 300, height: 200, alignment:.trailing)
                 
                 Form {
                     TextField("New Task Name", text: $TaskName)
                     DatePicker("Due", selection: $dueDate)
                     TextField("Time to complete",text: $completeTime).keyboardType(.numberPad)
                     DatePicker("Plan Date",selection: $planDate)
+                    
+                    Section {
+                        Button(action: {
+                            self.manage.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
+                        }) {
+                            Text("safe")
+                        }
+                    }
                 }
                 
             }

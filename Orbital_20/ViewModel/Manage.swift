@@ -16,15 +16,14 @@ class Manage:ObservableObject {
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
     
     //MARK: -Basic functionality
-    func addTask(due date:Date,_ name:String,at plan:Date,for time:Int16) {
+    func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
         let newAssignment = Task(context: context)
         newAssignment.isComplete = false
         newAssignment.hasStarted = false
-        newAssignment.due = date
         newAssignment.planTime = time
+        newAssignment.due = date
         newAssignment.name = name
         newAssignment.planDate = plan
-        newAssignment.remainning = time
         newAssignment.extendCount = 0
         try? self.context.save()
     }
