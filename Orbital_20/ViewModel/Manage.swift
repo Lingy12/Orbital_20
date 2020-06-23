@@ -14,6 +14,7 @@ import Foundation
 class Manage:ObservableObject {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
+
     
     //MARK: -Basic functionality
     func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {

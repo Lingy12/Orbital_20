@@ -59,27 +59,7 @@ struct StudyView: View {
                 Spacer()
                 
                 //Timer
-                VStack {
-                    Text("Time Remaining:").bold().foregroundColor(.red)
-                    // TODO: countdown time
-                    Text("0:05:30").bold().foregroundColor(.red)
-                }.scaleEffect(1.75)
-                
-                Spacer()
-                
-                //Button
-                Button(action: {
-                    //change bottom appearance and stop timer
-                    
-                }, label:
-                    {
-                        Text("Pause").bold()
-                            .foregroundColor(.white)
-                            .padding(.all, 10)
-                            .padding([.leading, .trailing], 30)
-                            .background(Color.pink)
-                        .cornerRadius(20)
-                })
+                TimerView()
                 
                 Spacer()
             }
