@@ -15,8 +15,6 @@ struct TimerView: View {
     let availableMinutes = Array(1...59)
     
     var body: some View {
-        
-        
         VStack {
             //- MARK: COUNTDOWN
             VStack {
@@ -43,6 +41,7 @@ struct TimerView: View {
                         : self.timerManager.start()
                     })
             
+            //show restart bottom if paused
             if timerManager.timerMode == .paused {
                 Image(systemName: "gobackward")
                     .aspectRatio(contentMode: .fit)
@@ -53,6 +52,7 @@ struct TimerView: View {
                     })
             }
             
+            //Select Time length
             if timerManager.timerMode == .initial {
                 Picker(selection: $selectedPickerIndex, label: Text("")) {
                     ForEach (0 ..< availableMinutes.count) {
@@ -60,7 +60,6 @@ struct TimerView: View {
                     }
                 }.labelsHidden()
             }
-            
         }
     }
 }
