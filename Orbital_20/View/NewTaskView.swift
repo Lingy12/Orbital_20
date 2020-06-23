@@ -14,16 +14,19 @@ struct NewTaskView: View {
     @State var dueDate = Date()
     @State var completeTime = ""
     @State var planDate = Date()
+    @State var moduleName = ""
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
-
+    
     
     var body: some View {
         Form {
+            TextField("New Module Nmae",text: $moduleName)
             TextField("New Task Name", text: $TaskName)
             DatePicker("Due", selection: $dueDate)
             TextField("Time to complete",text: $completeTime).keyboardType(.numberPad)
             DatePicker("Plan Date",selection: $planDate)
+            
             
             Section {
                 ZStack {
@@ -31,7 +34,7 @@ struct NewTaskView: View {
                         .foregroundColor(.blue)
                     
                     Button(action: {
-                        self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
+                        self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0,for:self.moduleName)
                         self.showCreation.toggle()
                     }) {
                         Text("save")
@@ -41,17 +44,18 @@ struct NewTaskView: View {
         }
     }
     
-    private func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
-           let newAssignment = Task(context: context)
-           newAssignment.isComplete = false
-           newAssignment.hasStarted = false
-           newAssignment.planTime = time
-           newAssignment.due = date
-           newAssignment.name = name
-           newAssignment.planDate = plan
-           newAssignment.extendCount = 0
-           try? self.context.save()
-       }
+    private func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16,for module:String) {
+        let newAssignment = Task(context: context)
+        newAssignment.isComplete = false
+        newAssignment.hasStarted = false
+        newAssignment.planTime = time
+        newAssignment.due = date
+        newAssignment.name = name
+        newAssignment.planDate = plan
+        newAssignment.extendCount = 0
+        newAssignment.modName = module
+        try? self.context.save()
+    }
 }
 
 struct NewTaskView_Previews: PreviewProvider {

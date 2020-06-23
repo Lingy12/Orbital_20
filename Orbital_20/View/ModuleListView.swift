@@ -10,7 +10,8 @@
 import SwiftUI
 
 struct ModuleListView: View {
-    
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     
     var body: some View {
         NavigationView {
@@ -29,9 +30,11 @@ struct ModuleListView: View {
                 
                 //TODO: Create module Data
                 Section(header: Text("My Modules")) {
-                    List(moduleData) { module in
-                        NavigationLink(destination: TaskListView()) {
-                            SingleModuleView(module: module)
+                    List {
+                        ForEach(moduleList,id: \.self) { module in
+                            NavigationLink(destination: TaskListView()) {
+                                SingleModuleView(module: module)
+                            }
                         }
                     }
                 }

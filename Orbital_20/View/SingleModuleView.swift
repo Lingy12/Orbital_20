@@ -17,9 +17,3 @@ struct SingleModuleView: View {
         }
     }
 }
-
-struct SingleModuleView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingleModuleView(module: Module)
-    }
-}
