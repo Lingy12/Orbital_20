@@ -53,7 +53,7 @@ struct StudyView: View {
                 Spacer()
                 
                 //ClockView
-              Text("\(timeString(date: date))").bold().scaleEffect(2)
+                Text("\(timeString(date: date))").bold().scaleEffect(2)
                     .onAppear(perform: {let _ = self.updateTimer})
                 
                 Spacer()
@@ -113,3 +113,9 @@ struct StudyView: View {
 //        StudyView()
 //    }
 //}
+
+struct StudyView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

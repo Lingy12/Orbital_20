@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NewTaskView: View {
-    @Binding var showCreation:Bool
+    @Binding var showCreation: Bool
     @State var TaskName = ""
     @State var dueDate = Date()
     @State var completeTime = ""
@@ -52,4 +52,10 @@ struct NewTaskView: View {
            newAssignment.extendCount = 0
            try? self.context.save()
        }
+}
+
+struct NewTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
 }

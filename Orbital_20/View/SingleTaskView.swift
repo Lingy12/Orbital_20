@@ -14,11 +14,10 @@ struct SingleTaskView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack {
                 Text(task.name!).font(.headline)
                 Text(dateToTime(date: task.due!)).font(.caption)
             }
-            
             Spacer()
         }
     }

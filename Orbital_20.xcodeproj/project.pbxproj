@@ -10,6 +10,8 @@
 		0E8808DA249BEBBC00F2C36E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8808D9249BEBBC00F2C36E /* StudyView.swift */; };
 		0E8808DC249BEBC300F2C36E /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8808DB249BEBC300F2C36E /* TaskListView.swift */; };
 		0E8808E0249BED4800F2C36E /* SingleTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8808DF249BED4800F2C36E /* SingleTaskView.swift */; };
+		0EBC03EE24A1A63E00633356 /* ModuleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC03ED24A1A63E00633356 /* ModuleListView.swift */; };
+		0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC03EF24A1A78000633356 /* SingleModuleView.swift */; };
 		B83C405224A193B7001B282C /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83C405124A193B7001B282C /* ClockView.swift */; };
 		B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845CF0824A1898F00B9EA8F /* NewTaskView.swift */; };
 		B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845CF0A24A18FC300B9EA8F /* Timer.swift */; };
@@ -28,6 +30,8 @@
 		0E8808D9249BEBBC00F2C36E /* StudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		0E8808DB249BEBC300F2C36E /* TaskListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		0E8808DF249BED4800F2C36E /* SingleTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskView.swift; sourceTree = "<group>"; };
+		0EBC03ED24A1A63E00633356 /* ModuleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleListView.swift; sourceTree = "<group>"; };
+		0EBC03EF24A1A78000633356 /* SingleModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModuleView.swift; sourceTree = "<group>"; };
 		B83C405124A193B7001B282C /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		B845CF0824A1898F00B9EA8F /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		B845CF0A24A18FC300B9EA8F /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				B845CF0C24A1934C00B9EA8F /* TimerView.swift */,
 				B83C405124A193B7001B282C /* ClockView.swift */,
 				0E8808DF249BED4800F2C36E /* SingleTaskView.swift */,
+				0EBC03ED24A1A63E00633356 /* ModuleListView.swift */,
+				0EBC03EF24A1A78000633356 /* SingleModuleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,10 +209,12 @@
 				B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */,
 				B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */,
 				B875547C247225F5005E2E47 /* Orbital_20.xcdatamodeld in Sources */,
+				0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */,
 				B875547E247225F5005E2E47 /* ContentView.swift in Sources */,
 				B845CF0D24A1934C00B9EA8F /* TimerView.swift in Sources */,
 				B8755479247225F5005E2E47 /* SceneDelegate.swift in Sources */,
 				0E8808E0249BED4800F2C36E /* SingleTaskView.swift in Sources */,
+				0EBC03EE24A1A63E00633356 /* ModuleListView.swift in Sources */,
 				B8F297032484878800F34060 /* Manage.swift in Sources */,
 				0E8808DC249BEBC300F2C36E /* TaskListView.swift in Sources */,
 			);
