@@ -10,6 +10,7 @@ import SwiftUI
 
 struct StudyView: View {
     
+    var task:Task
     @State var date = Date()
     
     var body: some View {
@@ -28,6 +29,15 @@ struct StudyView: View {
             //elements of interfaces
             VStack {
                 
+                VStack {
+                    Text(task.name!)
+                    .font(.title)
+                
+                
+                    Text(task.modName!)
+                    .font(.subheadline)
+                }
+                
                 Spacer()
                 
                 //End time
@@ -43,8 +53,8 @@ struct StudyView: View {
                 Spacer()
                 
                 //ClockView
-                Text("\(timeString(date: date))").bold().scaleEffect(2)
-                .onAppear(perform: {let _ = self.updateTimer})
+              Text("\(timeString(date: date))").bold().scaleEffect(2)
+                    .onAppear(perform: {let _ = self.updateTimer})
                 
                 Spacer()
                 
@@ -98,8 +108,8 @@ struct StudyView: View {
 
 
 
-struct StudyView_Previews: PreviewProvider {
-    static var previews: some View {
-        StudyView()
-    }
-}
+//struct StudyView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StudyView()
+//    }
+//}

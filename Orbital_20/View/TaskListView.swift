@@ -12,12 +12,8 @@ struct TaskListView: View {
     
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
-
+    
     @State var showCreation = false
-    @State var TaskName = ""
-    @State var dueDate = Date()
-    @State var completeTime = ""
-    @State var planDate = Date()
     
     var body: some View {
         ZStack {
@@ -39,7 +35,9 @@ struct TaskListView: View {
                         
                         Section(header: Text("Tasks")) {
                             ForEach(self.assignmentList,id: \.self) { assignment in
-                                SingleTaskView(task: assignment)
+                                NavigationLink(destination: StudyView(task: assignment)) {
+                                    SingleTaskView(task: assignment)
+                                }
                             }.onDelete(perform: deleteTask)
                         }
                     }
@@ -47,23 +45,7 @@ struct TaskListView: View {
                     .navigationBarItems(trailing: EditButton())
                 }
             } else {
-                
-                Form {
-                    TextField("New Task Name", text: $TaskName)
-                    DatePicker("Due", selection: $dueDate)
-                    TextField("Time to complete",text: $completeTime).keyboardType(.numberPad)
-                    DatePicker("Plan Date",selection: $planDate)
-                    
-                    Section {
-                        Button(action: {
-                            self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0)
-                            self.showCreation.toggle()
-                        }) {
-                            Text("save")
-                        }
-                    }
-                }
-                
+                NewTaskView(showCreation: self.$showCreation)
             }
         }
     }
@@ -74,17 +56,7 @@ struct TaskListView: View {
         }
         try? self.context.save()
     }
-    private func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
-        let newAssignment = Task(context: context)
-        newAssignment.isComplete = false
-        newAssignment.hasStarted = false
-        newAssignment.planTime = time
-        newAssignment.due = date
-        newAssignment.name = name
-        newAssignment.planDate = plan
-        newAssignment.extendCount = 0
-        try? self.context.save()
-    }
+   
 }
 
 struct TaskListView_Previews: PreviewProvider {

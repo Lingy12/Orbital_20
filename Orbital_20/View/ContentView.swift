@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var currentWorking:Task?
+    
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: StudyView()) {
+                NavigationLink(destination: StudyView(task:currentWorking!)) { //TODO: resolve optional
                     Text("Current working")
                         .font(.title)
                         .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
@@ -21,23 +24,24 @@ struct ContentView: View {
                 }.padding()
                     .foregroundColor(.blue)
                 
-                NavigationLink(destination:TaskListView()) {
-                    Text("Go to task list")
-                        .font(.title)
-                        .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
-                        .frame( alignment: .center)
-                    
-                }
-            .padding()
-                .foregroundColor(.blue)
+            }
+            NavigationLink(destination:TaskListView()) {
+                Text("Go to task list")
+                    .font(.title)
+                    .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
+                    .frame( alignment: .center)
                 
             }
+            .padding()
+            .foregroundColor(.blue)
+            
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
