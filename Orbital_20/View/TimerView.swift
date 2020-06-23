@@ -34,7 +34,7 @@ struct TimerView: View {
                     .cornerRadius(20)
                     .onTapGesture(perform: {
                         if (self.timerManager.timerMode == .initial) {
-                            self.timerManager.setTimerLength(minutes: self.availableMinutes[self.selectedPickerIndex * 60])
+                            self.timerManager.setTimerLength(minutes: self.availableMinutes[self.selectedPickerIndex] * 60)
                         }
                         self.timerManager.timerMode == .running
                         ? self.timerManager.pause()
