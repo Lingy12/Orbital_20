@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) var context
     var body: some View {
         NavigationView {
             VStack {
@@ -32,8 +33,17 @@ struct ContentView: View {
                 }
                 .padding()
                 .foregroundColor(.blue)
+                
+                Button(action:{
+                    self.context.reset()
+                }) {
+                    Text("RESET")
+                        .font(.title)
+                }
             }
         }
+        
+        
     }
     
     

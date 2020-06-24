@@ -51,9 +51,21 @@ struct NewTaskView: View {
         newAssignment.due = date
         newAssignment.name = name
         newAssignment.planDate = plan
-       
+        if !self.haveMod(modname: module) {
+            let newMod = Module(context: context)
+            newMod.moduleName = module
+        }
         newAssignment.modName = module
         try? self.context.save()
+    }
+    
+    private func haveMod(modname:String) -> Bool {
+        for index in self.moduleList.indices {
+            if moduleList[index].moduleName == modname {
+                return true
+            }
+        }
+        return false
     }
 }
 
