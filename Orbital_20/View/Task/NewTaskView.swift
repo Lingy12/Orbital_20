@@ -21,7 +21,7 @@ struct NewTaskView: View {
     
     var body: some View {
         Form {
-            TextField(self.moduleName == "" ? "Module Name":self.moduleName,text: $moduleName)
+            TextField("Module Name",text: $moduleName)
             TextField("New Task Name", text: $TaskName)
             DatePicker("Due", selection: $dueDate)
             TextField("Time to complete",text: $completeTime).keyboardType(.numberPad)
@@ -54,6 +54,7 @@ struct NewTaskView: View {
         if !self.haveMod(modname: module) {
             let newMod = Module(context: context)
             newMod.moduleName = module
+            try? self.context.save()
         }
         newAssignment.modName = module
         try? self.context.save()

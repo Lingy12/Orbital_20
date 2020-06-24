@@ -15,19 +15,19 @@ struct AddedTaskView: View {
     
     var body: some View {
         List {
-            ForEach(self.getModuleAssignmentList() ?? [],id: \.self){ task in
+            ForEach(self.getModuleAssignmentList(),id: \.self){ task in
                 SingleTaskView(task: task)
             }
         }
     }
     
     
-    private func getModuleAssignmentList() -> [Task]? {
-        var assignmentList:[Task]?
+    private func getModuleAssignmentList() -> [Task] {
+        var assignmentList:[Task] = []
         
         for index in self.assignmentList.indices {
             if self.assignmentList[index].modName == self.moduleName {
-                assignmentList?.append(self.assignmentList[index])
+                assignmentList.append(self.assignmentList[index])
             }
         }
         

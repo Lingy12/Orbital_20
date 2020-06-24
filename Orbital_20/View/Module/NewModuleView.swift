@@ -4,7 +4,7 @@
 //
 //  Created by Jerry Lin on 24/6/20.
 //  Copyright © 2020 Jerry Lin. All rights reserved.
-//
+//  Adding new module to the application, can create new module associate with creating new task
 
 import SwiftUI
 
@@ -21,35 +21,38 @@ struct NewModuleView: View {
     var body: some View {
         Form {
             TextField("New Module Name",text: $moduleName)
-            
-            Section(header: Text ("Add new module")) {
-                HStack {
-                    Button(action: {
-                        self.showTaskCreation.toggle()
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.green)
-                            .imageScale(.large)
+            if !self.showTaskCreation {
+                Section(header: Text ("Add new module")) {
+                    HStack {
+                        Button(action: {
+                            self.showTaskCreation.toggle()
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.green)
+                                .imageScale(.large)
+                        }
+                    }
+                }.font(.headline)
+                
+                Section(header:Text("Added Task")) {
+                    AddedTaskView(moduleName: moduleName)
+                }
+                
+                Section {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(.blue)
+                        
+                        Button(action: {
+                            self.showModcreation.toggle()
+                        }) {
+                            Text("Save")
+                        }
+                        
                     }
                 }
-            }.font(.headline)
-            
-            Section(header:Text("Added Task")) {
-                AddedTaskView(moduleName: moduleName)
-            }
-            
-            Section {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .foregroundColor(.blue)
-                    
-                    Button(action: {
-                        self.showModcreation.toggle()
-                    }) {
-                        Text("Save")
-                    }
-                    
-                }
+            } else {
+                ModuleTaskCreationView(showCreation: self.$showTaskCreation,module:self.moduleName)
             }
         }
         
@@ -61,12 +64,12 @@ struct NewModuleView: View {
         try? self.context.save()
     }
     
-    private func getModuleAssignmentList() -> [Task]? {
-        var assignmentList:[Task]?
+    private func getModuleAssignmentList() -> [Task] {
+        var assignmentList:[Task] = []
         
         for index in self.taskList.indices {
             if self.taskList[index].modName == self.moduleName {
-                assignmentList?.append(self.taskList[index])
+                assignmentList.append(self.taskList[index])
             }
         }
         

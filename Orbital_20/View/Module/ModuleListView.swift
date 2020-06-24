@@ -37,10 +37,10 @@ struct ModuleListView: View {
                         Section(header: Text("My Modules")) {
                             List {
                                 ForEach(moduleList,id: \.self) { module in
-                                    NavigationLink(destination: ModuleTaskView(module:module)) {
+                                    NavigationLink(destination: ModuleTaskView(module:module.moduleName!)) {
                                         SingleModuleView(module: module)
                                     }
-                                }
+                                }.onDelete(perform: deleteModule)
                             }
                         }
                         
@@ -51,6 +51,16 @@ struct ModuleListView: View {
             }
         }
     }
+    
+    private func deleteModule(indexSet:IndexSet) {
+           for index in indexSet {
+               let itemToDelete = moduleList[index]
+               context.delete(itemToDelete)
+           }
+           
+           
+           try? self.context.save()
+       }
 }
 
 struct ModuleListView_Previews: PreviewProvider {

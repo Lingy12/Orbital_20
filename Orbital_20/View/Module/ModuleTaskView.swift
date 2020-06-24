@@ -9,10 +9,32 @@
 import SwiftUI
 
 struct ModuleTaskView: View {
-    var module:Module
+    var module:String
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var taskList:FetchedResults<Task>
     
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Section(header:Text(module)){
+                
+                List{
+                    ForEach(self.getModuleAssignmentList(),id: \.self) { task in
+                        SingleTaskView(task: task)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getModuleAssignmentList() -> [Task] {
+        var assignmentList:[Task] = []
+        
+        for index in self.taskList.indices {
+            if self.taskList[index].modName == self.module {
+                assignmentList.append(self.taskList[index])
+            }
+        }
+        
+        return assignmentList
     }
 }
 
