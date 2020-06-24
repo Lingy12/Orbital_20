@@ -12,8 +12,10 @@ struct TaskListView: View {
     
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
-    
+    @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     @State var showCreation = false
+    
+    var module:Module? //pass in a module to show the task for this module
     
     var body: some View {
         ZStack {
@@ -33,13 +35,7 @@ struct TaskListView: View {
                             }
                         }.font(.headline)
                         
-                        Section(header: Text("Tasks")) {
-                            ForEach(self.assignmentList,id: \.self) { assignment in
-                                NavigationLink(destination: StudyView(task: assignment)) {
-                                    SingleTaskView(task: assignment)
-                                }
-                            }.onDelete(perform: deleteTask)
-                        }
+                        TaskList
                     }
                     .navigationBarTitle(Text("My Task List"))
                     .navigationBarItems(trailing: EditButton())
@@ -49,14 +45,46 @@ struct TaskListView: View {
             }
         }
     }
+    
+    private var TaskList:some View {
+        ZStack {
+            if self.module != nil {
+                Section(header:Text(self.module!.moduleName!)) {
+                    ForEach(self.module!.assignmentList!,id: \.self) { task in
+                        SingleTaskView(task:task)
+                    }.onDelete(perform: deleteTask)
+                }
+            } else {
+                Section(header: Text("Tasks")) {
+                    ForEach(self.assignmentList,id:\.self) {assignment in
+                        NavigationLink(destination:StudyView(task: assignment)) {
+                            SingleTaskView(task: assignment)
+                        }
+                    }.onDelete(perform: deleteTask)
+                }
+            }
+        }
+    }
+    
+    //TODO:Update deletask(delete from module)
     private func deleteTask(indexSet:IndexSet) {
         for index in indexSet {
             let itemToDelete = assignmentList[index]
             context.delete(itemToDelete)
         }
+        
+        
         try? self.context.save()
     }
-   
+    
+    private func getModuleTaskList(for module:Module) -> [Task]? {
+        for index in self.moduleList.indices {
+            if moduleList[index].moduleName == module.moduleName {
+                return moduleList[index].assignmentList
+            }
+        }
+        return []
+    }
 }
 
 struct TaskListView_Previews: PreviewProvider {

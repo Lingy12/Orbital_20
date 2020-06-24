@@ -24,6 +24,8 @@
 		B8755480247225F8005E2E47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B875547F247225F8005E2E47 /* Assets.xcassets */; };
 		B8755483247225F8005E2E47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8755482247225F8005E2E47 /* Preview Assets.xcassets */; };
 		B8755486247225F8005E2E47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8755484247225F8005E2E47 /* LaunchScreen.storyboard */; };
+		B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EBC7124A2E6C90080C472 /* NewModuleView.swift */; };
+		B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */; };
 		B8F297032484878800F34060 /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F297022484878800F34060 /* Manage.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		B8755482247225F8005E2E47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8755485247225F8005E2E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8755487247225F8005E2E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B89EBC7124A2E6C90080C472 /* NewModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModuleView.swift; sourceTree = "<group>"; };
+		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
 		B8F297022484878800F34060 /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,8 @@
 				B83C405124A193B7001B282C /* ClockView.swift */,
 				0E8808DF249BED4800F2C36E /* SingleTaskView.swift */,
 				0EBC03ED24A1A63E00633356 /* ModuleListView.swift */,
+				B89EBC7124A2E6C90080C472 /* NewModuleView.swift */,
+				B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */,
 				0EBC03EF24A1A78000633356 /* SingleModuleView.swift */,
 			);
 			path = View;
@@ -211,10 +217,12 @@
 				B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */,
 				B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */,
 				B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */,
+				B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */,
 				B875547C247225F5005E2E47 /* Orbital_20.xcdatamodeld in Sources */,
 				0EE85EB924A27E67006F4E3D /* TimerManager.swift in Sources */,
 				0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */,
 				B875547E247225F5005E2E47 /* ContentView.swift in Sources */,
+				B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */,
 				B845CF0D24A1934C00B9EA8F /* TimerView.swift in Sources */,
 				B8755479247225F5005E2E47 /* SceneDelegate.swift in Sources */,
 				0E8808E0249BED4800F2C36E /* SingleTaskView.swift in Sources */,

@@ -11,37 +11,44 @@ import SwiftUI
 
 struct ModuleListView: View {
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
+    @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
+    
+    @State var showModCreation = false
     
     var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text ("Add new module")) {
-                    HStack {
-                        Button(action: {
-                            //TODO: add new module to moduledata
-                        }) {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.green)
-                                .imageScale(.large)
-                        }
-                    }
-                }.font(.headline)
-                
-                //TODO: Create module Data
-                Section(header: Text("My Modules")) {
+        ZStack {
+            if showModCreation {
+                NewModuleView(showModcreation: $showModCreation)
+            } else {
+                NavigationView {
                     List {
-                        ForEach(moduleList,id: \.self) { module in
-                            NavigationLink(destination: TaskListView()) {
-                                SingleModuleView(module: module)
+                        Section(header: Text ("Add new module")) {
+                            HStack {
+                                Button(action: {
+                                    self.showModCreation.toggle()
+                                }) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(.green)
+                                        .imageScale(.large)
+                                }
+                            }
+                        }.font(.headline)
+                        
+                        Section(header: Text("My Modules")) {
+                            List {
+                                ForEach(moduleList,id: \.self) { module in
+                                    NavigationLink(destination: TaskListView(module:module)) {
+                                        SingleModuleView(module: module)
+                                    }
+                                }
                             }
                         }
+                        
                     }
+                    .navigationBarTitle(Text("Modules"))
+                    .navigationBarItems(trailing: EditButton())
                 }
-                
             }
-            .navigationBarTitle(Text("Modules"))
-            .navigationBarItems(trailing: EditButton())
         }
     }
 }

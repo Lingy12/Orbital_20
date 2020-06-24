@@ -18,7 +18,10 @@ struct SingleTaskView: View {
                 Text(task.name!).font(.headline)
                 Text(dateToTime(date: task.due!)).font(.caption)
             }
+            
             Spacer()
+            
+            Text(task.modName!).font(.body).opacity(0.7)
         }
     }
     

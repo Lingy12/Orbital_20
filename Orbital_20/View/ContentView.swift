@@ -10,13 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var currentWorking:Task?
-    
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: StudyView(task:currentWorking!)) { //TODO: resolve optional
-                    Text("Current working")
+                NavigationLink(destination: ModuleListView()) {
+                    Text("Go to module list")
                         .font(.title)
                         .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
                         .frame(alignment: .center)
