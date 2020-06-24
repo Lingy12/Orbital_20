@@ -39,6 +39,7 @@ struct NewTaskView: View {
                         
                     }) {
                         Text("save")
+                            .foregroundColor(.red)
                     }
                 }
             }
@@ -62,13 +63,10 @@ struct NewTaskView: View {
     
     private func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16,for module:String) {
         let newAssignment = Task(context: context)
-        newAssignment.isComplete = false
-        newAssignment.hasStarted = false
-        newAssignment.planTime = time
         newAssignment.due = date
         newAssignment.name = name
         newAssignment.planDate = plan
-        newAssignment.extendCount = 0
+       
         newAssignment.modName = module
         self.updateModule(task: newAssignment)
         try? self.context.save()

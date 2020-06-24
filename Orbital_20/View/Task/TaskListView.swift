@@ -15,10 +15,9 @@ struct TaskListView: View {
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     @State var showCreation = false
     
-    var module:Module? //pass in a module to show the task for this module
     
     var body: some View {
-        ZStack {
+        VStack {
             //Navigation view
             if !self.showCreation {
                 NavigationView {
@@ -35,33 +34,24 @@ struct TaskListView: View {
                             }
                         }.font(.headline)
                         
-                        TaskList
+                        
+                        
+                        Section(header: Text("Tasks")) {
+                            ForEach(self.assignmentList,id:\.self) {assignment in
+                                NavigationLink(destination:StudyView(task: assignment)) {
+                                    SingleTaskView(task: assignment)
+                                }
+                            }.onDelete(perform: deleteTask)
+                            
+                        }
+                        
                     }
-                    .navigationBarTitle(Text("My Task List"))
-                    .navigationBarItems(trailing: EditButton())
+                    
                 }
+                .navigationBarTitle(Text("My Task List"))
+                .navigationBarItems(trailing: EditButton())
             } else {
                 NewTaskView(showCreation: self.$showCreation)
-            }
-        }
-    }
-    
-    private var TaskList:some View {
-        ZStack {
-            if self.module != nil {
-                Section(header:Text(self.module!.moduleName!)) {
-                    ForEach(self.module!.assignmentList!,id: \.self) { task in
-                        SingleTaskView(task:task)
-                    }.onDelete(perform: deleteTask)
-                }
-            } else {
-                Section(header: Text("Tasks")) {
-                    ForEach(self.assignmentList,id:\.self) {assignment in
-                        NavigationLink(destination:StudyView(task: assignment)) {
-                            SingleTaskView(task: assignment)
-                        }
-                    }.onDelete(perform: deleteTask)
-                }
             }
         }
     }
@@ -75,15 +65,6 @@ struct TaskListView: View {
         
         
         try? self.context.save()
-    }
-    
-    private func getModuleTaskList(for module:Module) -> [Task]? {
-        for index in self.moduleList.indices {
-            if moduleList[index].moduleName == module.moduleName {
-                return moduleList[index].assignmentList
-            }
-        }
-        return []
     }
 }
 

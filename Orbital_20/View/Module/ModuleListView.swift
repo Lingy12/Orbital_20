@@ -37,7 +37,7 @@ struct ModuleListView: View {
                         Section(header: Text("My Modules")) {
                             List {
                                 ForEach(moduleList,id: \.self) { module in
-                                    NavigationLink(destination: TaskListView(module:module)) {
+                                    NavigationLink(destination: ModuleTaskView(module:module)) {
                                         SingleModuleView(module: module)
                                     }
                                 }

@@ -19,13 +19,11 @@ class Manage:ObservableObject {
     //MARK: -Basic functionality
     func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16) {
         let newAssignment = Task(context: context)
-        newAssignment.isComplete = false
-        newAssignment.hasStarted = false
-        newAssignment.planTime = time
+       
         newAssignment.due = date
         newAssignment.name = name
         newAssignment.planDate = plan
-        newAssignment.extendCount = 0
+      
         try? self.context.save()
     }
     

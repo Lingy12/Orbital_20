@@ -22,17 +22,17 @@ struct ContentView: View {
                 }.padding()
                     .foregroundColor(.blue)
                 
-            }
-            NavigationLink(destination:TaskListView()) {
-                Text("Go to task list")
-                    .font(.title)
-                    .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
-                    .frame( alignment: .center)
                 
+                NavigationLink(destination:TaskListView()) {
+                    Text("Go to task list")
+                        .font(.title)
+                        .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
+                        .frame( alignment: .center)
+                    
+                }
+                .padding()
+                .foregroundColor(.blue)
             }
-            .padding()
-            .foregroundColor(.blue)
-            
         }
     }
     
