@@ -46,21 +46,6 @@ struct NewTaskView: View {
         }
     }
     
-    private func updateModule(task:Task) {
-        for index in moduleList.indices {
-            if moduleList[index].moduleName == self.moduleName {
-                moduleList[index].assignmentList?.append(task)
-                return
-            }
-        }
-        let newModule = Module(context: context)
-        var assignmentList:[Task] = []
-        newModule.moduleName = self.moduleName
-        assignmentList.append(task)
-        newModule.assignmentList = assignmentList
-        try? self.context.save()
-    }
-    
     private func addTask(due date:Date,_ name:String,at plan:Date,_ time:Int16,for module:String) {
         let newAssignment = Task(context: context)
         newAssignment.due = date
@@ -68,7 +53,6 @@ struct NewTaskView: View {
         newAssignment.planDate = plan
        
         newAssignment.modName = module
-        self.updateModule(task: newAssignment)
         try? self.context.save()
     }
 }

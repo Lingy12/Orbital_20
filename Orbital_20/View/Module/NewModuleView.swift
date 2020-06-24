@@ -58,7 +58,6 @@ struct NewModuleView: View {
     private func addModule(for modname:String) {
         let newModule = Module(context: context)
         newModule.moduleName = modname
-        newModule.assignmentList = self.getModuleAssignmentList()
         try? self.context.save()
     }
     
