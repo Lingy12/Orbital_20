@@ -11,16 +11,21 @@ import SwiftUI
 struct ModuleTaskView: View {
     var module:String
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var taskList:FetchedResults<Task>
+    @State var showTaskCreation = false
     
     var body: some View {
         VStack {
-            Section(header:Text(module)){
-                
-                List{
-                    ForEach(self.getModuleAssignmentList(),id: \.self) { task in
-                        SingleTaskView(task: task)
+            if !showTaskCreation {
+                Section(header:Text(module)){
+                    
+                    List{
+                        ForEach(self.getModuleAssignmentList(),id: \.self) { task in
+                            SingleTaskView(task: task)
+                        }
                     }
                 }
+            } else {
+                ModuleTaskCreationView(showCreation: self.$showTaskCreation, module: module)
             }
         }
     }
