@@ -16,6 +16,17 @@ struct ModuleTaskView: View {
     var body: some View {
         VStack {
             if !showTaskCreation {
+                HStack {
+                    Spacer()
+                    
+                    Button(action:{
+                        self.showTaskCreation.toggle()
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(.green)
+                            .imageScale(.large)
+                    }
+                }
                 Section(header:Text(module)){
                     
                     List{
