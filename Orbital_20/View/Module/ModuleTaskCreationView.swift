@@ -13,6 +13,8 @@ struct ModuleTaskCreationView: View {
     
     @Environment(\.managedObjectContext) var context
     var module:String
+    var hours = Array(0...23)
+    var minutes = Array(0...59)
     @State var TaskName = ""
     @State var dueDate = Date()
     @State var planHour = 0
@@ -32,14 +34,14 @@ struct ModuleTaskCreationView: View {
                     
                     HStack {
                         Picker(selection: $planHour,label: Text("hours")) {
-                            ForEach(0..<23) {
-                                Text("\($0) h")
+                            ForEach(0 ..< hours.count) {
+                                Text("\(self.hours[$0]) h")
                             }
                         }
                         
                         Picker(selection: $planMinutes,label:Text("mins")) {
-                            ForEach(0..<59) {
-                                Text("\($0) min")
+                            ForEach(0 ..< minutes.count) {
+                                Text("\(self.minutes[$0]) min")
                             }
                         }
                     }

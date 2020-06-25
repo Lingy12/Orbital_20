@@ -11,6 +11,8 @@ import SwiftUI
 struct NewTaskView: View {
     @Binding var showCreation: Bool
     @State var TaskName = ""
+    var hours = Array(0...23)
+    var minutes = Array(0...59)
     @State var dueDate = Date()
     @State var planHour = 0
     @State var planMinutes = 0
@@ -30,14 +32,14 @@ struct NewTaskView: View {
                 
                 HStack {
                     Picker(selection: $planHour,label: Text("hours")) {
-                        ForEach(0..<24) {
-                            Text("\($0) h")
+                        ForEach(0 ..< hours.count) {
+                            Text("\(self.hours[$0]) h")
                         }
                     }
-
+                    
                     Picker(selection: $planMinutes,label:Text("mins")) {
-                        ForEach(0..<60) {
-                            Text("\($0) min")
+                        ForEach(0 ..< minutes.count) {
+                            Text("\(self.minutes[$0]) min")
                         }
                     }
                 }
