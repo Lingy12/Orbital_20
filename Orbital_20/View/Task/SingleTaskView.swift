@@ -27,7 +27,7 @@ struct SingleTaskView: View {
     
     func dateToTime(date:Date) -> String {
         let df = DateFormatter()
-        df.dateFormat = "yyyy-mm-dd"
+        df.dateFormat = "yyyy-MM-dd"
         let time = df.string(from: date)
         return time
     }

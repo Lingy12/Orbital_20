@@ -12,7 +12,8 @@ struct NewTaskView: View {
     @Binding var showCreation: Bool
     @State var TaskName = ""
     @State var dueDate = Date()
-    @State var completeTime = ""
+    @State var planHour = 0
+    @State var planMinutes = 0
     @State var planDate = Date()
     @State var moduleName = ""
     @Environment(\.managedObjectContext) var context
@@ -24,7 +25,23 @@ struct NewTaskView: View {
             TextField("Module Name",text: $moduleName)
             TextField("New Task Name", text: $TaskName)
             DatePicker("Due", selection: $dueDate)
-            TextField("Time to complete",text: $completeTime).keyboardType(.numberPad)
+            VStack {
+                Text("Pick your time for this assignment")
+                
+                HStack {
+                    Picker("Hours", selection: $planHour) {
+                        ForEach(0..<24) {
+                            Text("\($0) h")
+                        }
+                    }
+                    
+                    Picker("Minutes", selection: $planMinutes) {
+                        ForEach(0..<60) {
+                            Text("\($0) min")
+                        }
+                    }
+                }
+            }
             DatePicker("Plan Date",selection: $planDate)
             
             
@@ -34,7 +51,7 @@ struct NewTaskView: View {
                         .foregroundColor(.blue)
                     
                     Button(action: {
-                        self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.completeTime) ?? 0,for:self.moduleName)
+                        self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planHour*60 + self.planMinutes),for:self.moduleName)
                         self.showCreation.toggle()
                         
                     }) {

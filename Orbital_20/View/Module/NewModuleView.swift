@@ -47,6 +47,7 @@ struct NewModuleView: View {
                             self.showModcreation.toggle()
                         }) {
                             Text("Save")
+                                .foregroundColor(.black)
                         }
                         
                     }

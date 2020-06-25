@@ -12,11 +12,12 @@ import SwiftUI
 struct ModuleListView: View {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var taskList:FetchedResults<Task>
     
     @State var showModCreation = false
     
     var body: some View {
-        ZStack {
+        VStack {
             if showModCreation {
                 NewModuleView(showModcreation: $showModCreation)
             } else {
@@ -35,13 +36,13 @@ struct ModuleListView: View {
                         }.font(.headline)
                         
                         Section(header: Text("My Modules")) {
-                            List {
-                                ForEach(moduleList,id: \.self) { module in
-                                    NavigationLink(destination: ModuleTaskView(module:module.moduleName!)) {
+                            ForEach(moduleList,id: \.self) { module in
+                                NavigationLink(destination: ModuleTaskView(module:module.moduleName!)) {
+                                    if self.countTask(name: module.moduleName!) > 0 {
                                         SingleModuleView(module: module)
                                     }
-                                }.onDelete(perform: deleteModule)
-                            }
+                                }
+                            }.onDelete(perform: deleteModule)
                         }
                         
                     }
@@ -53,14 +54,23 @@ struct ModuleListView: View {
     }
     
     private func deleteModule(indexSet:IndexSet) {
-           for index in indexSet {
-               let itemToDelete = moduleList[index]
-               context.delete(itemToDelete)
-           }
-           
-           
-           try? self.context.save()
-       }
+        for index in indexSet {
+            let itemToDelete = moduleList[index]
+            context.delete(itemToDelete)
+        }
+        
+        try? self.context.save()
+    }
+    
+    private func countTask(name:String) -> Int{
+        var count = 0
+        for index in self.taskList.indices {
+            if self.taskList[index].modName == name {
+                count += 1
+            }
+        }
+        return count
+    }
 }
 
 struct ModuleListView_Previews: PreviewProvider {
