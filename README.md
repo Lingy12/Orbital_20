@@ -62,3 +62,7 @@ under a new module (or module). But I believe there is a better way, so this sho
 is using @Binding in the sub-view. So that when the parameter change, it will trigger the change all the way to the root view.
 - Delete module and all associate tasks: At first we can only delete the module, but the task associate with it still in the core data. So we write a new deletion function to
 achieve to delete all the task associate with this module instead of only deleting the module name in core data
+
+3. User Interface
+- Display of the UI with more than one functionality: As we follow the OOP principle when creating different views, such as ClockView, TimerView, StudyView, etc... All of them works perfectly fine on their own, but when combining them together in one view (eg: adding both ClockView and TimerView in StudyView), the preview won't be able to show the combined view for now, we will have to work on it in the following month.
+- As we transforming the view from purely static to functional, we will have to combine it with the model of our app, as we will need some real examples to run our app, I'm still learning the part of core data, which I'm going to catch up on the following week.
