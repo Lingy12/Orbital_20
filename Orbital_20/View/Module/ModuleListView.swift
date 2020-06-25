@@ -37,11 +37,16 @@ struct ModuleListView: View {
                         
                         Section(header: Text("My Modules")) {
                             ForEach(moduleList,id: \.self) { module in
-                                NavigationLink(destination: ModuleTaskView(module:module.moduleName!)) {
+                                ZStack {
                                     if self.countTask(name: module.moduleName!) > 0 {
-                                        SingleModuleView(module: module)
+                                        NavigationLink(destination: ModuleTaskView(module:module.moduleName!)) {
+                                            
+                                            SingleModuleView(module: module)
+                                        }
                                     }
+                                    
                                 }
+                                
                             }.onDelete(perform: deleteModule)
                         }
                         
@@ -57,9 +62,19 @@ struct ModuleListView: View {
         for index in indexSet {
             let itemToDelete = moduleList[index]
             context.delete(itemToDelete)
+            self.deleteAssociateTask(module: itemToDelete)
         }
         
         try? self.context.save()
+    }
+    
+    private func deleteAssociateTask(module:Module) {
+        for index in self.taskList.indices {
+            if self.taskList[index].modName == module.moduleName {
+                context.delete(self.taskList[index])
+            }
+        }
+        try?self.context.save()
     }
     
     private func countTask(name:String) -> Int{

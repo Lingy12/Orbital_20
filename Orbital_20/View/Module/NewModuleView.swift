@@ -19,37 +19,42 @@ struct NewModuleView: View {
     
     
     var body: some View {
-        Form {
-            TextField("New Module Name",text: $moduleName)
+        
+        ZStack {
             if !self.showTaskCreation {
-                Section(header: Text ("Add new module")) {
-                    HStack {
-                        Button(action: {
-                            self.showTaskCreation.toggle()
-                        }) {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.green)
-                                .imageScale(.large)
-                        }
+                Form {
+                    Section(header:Text("Add new module")) {
+                        TextField("New Module Name",text: $moduleName)
                     }
-                }.font(.headline)
-                
-                Section(header:Text("Added Task")) {
-                    AddedTaskView(moduleName: moduleName)
-                }
-                
-                Section {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(.blue)
-                        
-                        Button(action: {
-                            self.showModcreation.toggle()
-                        }) {
-                            Text("Save")
-                                .foregroundColor(.black)
+                    Section(header: Text ("Add new task for \(moduleName)")) {
+                        HStack {
+                            Button(action: {
+                                self.showTaskCreation.toggle()
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(.green)
+                                    .imageScale(.large)
+                            }
                         }
-                        
+                    }.font(.headline)
+                    
+                    Section(header:Text("Added Task")) {
+                        AddedTaskView(moduleName: moduleName)
+                    }
+                    
+                    Section {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundColor(.blue)
+                            
+                            Button(action: {
+                                self.showModcreation.toggle()
+                            }) {
+                                Text("Save")
+                                    .foregroundColor(.black)
+                            }
+                            
+                        }
                     }
                 }
             } else {

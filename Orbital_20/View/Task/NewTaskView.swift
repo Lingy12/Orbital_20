@@ -29,13 +29,13 @@ struct NewTaskView: View {
                 Text("Pick your time for this assignment")
                 
                 HStack {
-                    Picker("Hours", selection: $planHour) {
+                    Picker(selection: $planHour,label: Text("hours")) {
                         ForEach(0..<24) {
                             Text("\($0) h")
                         }
                     }
-                    
-                    Picker("Minutes", selection: $planMinutes) {
+
+                    Picker(selection: $planMinutes,label:Text("mins")) {
                         ForEach(0..<60) {
                             Text("\($0) min")
                         }
