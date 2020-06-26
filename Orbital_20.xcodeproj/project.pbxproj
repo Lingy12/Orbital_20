@@ -14,6 +14,7 @@
 		0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC03EF24A1A78000633356 /* SingleModuleView.swift */; };
 		0EE85EB924A27E67006F4E3D /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE85EB824A27E67006F4E3D /* TimerManager.swift */; };
 		B810E57F24A589EC0000E3E6 /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */; };
+		B810E58124A593460000E3E6 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810E58024A593460000E3E6 /* TimePicker.swift */; };
 		B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845CF0824A1898F00B9EA8F /* NewTaskView.swift */; };
 		B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845CF0A24A18FC300B9EA8F /* Timer.swift */; };
 		B845CF0D24A1934C00B9EA8F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845CF0C24A1934C00B9EA8F /* TimerView.swift */; };
@@ -38,6 +39,7 @@
 		0EBC03EF24A1A78000633356 /* SingleModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModuleView.swift; sourceTree = "<group>"; };
 		0EE85EB824A27E67006F4E3D /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
+		B810E58024A593460000E3E6 /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		B845CF0824A1898F00B9EA8F /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		B845CF0A24A18FC300B9EA8F /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		B845CF0C24A1934C00B9EA8F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				0E8808D9249BEBBC00F2C36E /* StudyView.swift */,
 				B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */,
+				B810E58024A593460000E3E6 /* TimePicker.swift */,
 				B845CF0C24A1934C00B9EA8F /* TimerView.swift */,
 			);
 			path = Tools;
@@ -241,6 +244,7 @@
 			files = (
 				0E8808DA249BEBBC00F2C36E /* StudyView.swift in Sources */,
 				B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */,
+				B810E58124A593460000E3E6 /* TimePicker.swift in Sources */,
 				B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */,
 				B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */,
 				B8E8B82D24A33AEB002CBA86 /* ModuleTaskView.swift in Sources */,

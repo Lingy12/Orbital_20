@@ -11,8 +11,6 @@ import SwiftUI
 struct NewTaskView: View {
     @Binding var showCreation: Bool
     @State var TaskName = ""
-    var hours = Array(0...23)
-    var minutes = Array(0...59)
     @State var dueDate = Date()
     @State var planHour = 0
     @State var planMinutes = 0
@@ -27,23 +25,13 @@ struct NewTaskView: View {
             TextField("Module Name",text: $moduleName)
             TextField("New Task Name", text: $TaskName)
             DatePicker("Due", selection: $dueDate)
+            
             VStack {
                 Text("Pick your time for this assignment")
                 
-                HStack {
-                    Picker(selection: $planHour,label: Text("hours")) {
-                        ForEach(0 ..< hours.count) {
-                            Text("\(self.hours[$0]) h")
-                        }
-                    }
-                    
-                    Picker(selection: $planMinutes,label:Text("mins")) {
-                        ForEach(0 ..< minutes.count) {
-                            Text("\(self.minutes[$0]) min")
-                        }
-                    }
-                }
+                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
             }
+            
             DatePicker("Plan Date",selection: $planDate)
             
             
