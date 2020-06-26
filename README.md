@@ -7,7 +7,7 @@ This is the Repository for Orbital project.
 - [Project Status Until The End of June](#Project-Status-Until-The-End-of-June)
 - [Things Need To Be Done in July](#Things-Need-To-Be-Done-in-July)
 - [Problem Encountered](#Problem-Encountered)
-- [Demo](###Demo)
+- [Demo](#Demo)
 
 
 ## Team Name
