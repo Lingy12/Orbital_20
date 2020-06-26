@@ -71,4 +71,9 @@ is using @Binding in the sub-view. So that when the parameter change, it will tr
 - Nested navigation view does not have a good look, we need to find a way to resolve this.
 
 ### Demo
-![Add new task](Demo/demo1.gif)
+1. Add new task
+![](Demo/demo1.gif)
+2. Add module with tasks
+![](Demo/demo2.gif)
+3. Ordering of the tasks(With respect to due date)
+![](Demo/demo3.gif)
