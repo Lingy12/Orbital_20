@@ -6,7 +6,7 @@ This is the Repository for Orbital project.
 
 ### 1.[Product overview](#Team-Name)
 - [Level of Achievement](#Level-of-Achievement)
-- [Aim and Motivation](#Aim-and-Motivation)\
+- [Aim and Motivation](#Aim-and-Motivation)
 - [Basic Feature(For milestone #2)](#Basic-Feature)
 - [Extension Feature](#Extension-Feature)
 ### 2.[Product prototype(Milestone 2)](#Milestone-2)
