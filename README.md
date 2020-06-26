@@ -41,6 +41,7 @@ swift UI. We need to work on the UI design and then implement them with swiftUI.
 - Implement the auto-reflecting mechanism (Using the time of reflection, give user a feedback about how well they plan the time)
 - Detect the backward
 - Muti-select and delete
+- Implement the completion of tasks (Using toggle)
 
 3. Code
 - Change the code to a neater way (Consider the OOP principle, but sometimes it's quite hard for view representation)
@@ -60,8 +61,7 @@ fix the module name, otherwise, just have a normal procedure to create a module.
 under a new module (or module). But I believe there is a better way, so this should be fixed in July.
 - Passing the parameter between the view: At first we are confused about how to pass a parameter between the view since we need to consider the abstraction. Our solution
 is using @Binding in the sub-view. So that when the parameter change, it will trigger the change all the way to the root view.
-- Delete module and all associate tasks: At first we can only delete the module, but the task associate with it still in the core data. So we write a new deletion function to
-achieve to delete all the task associate with this module instead of only deleting the module name in core data
+- Delete module and all associate tasks: At first we can only delete the module, but the task associate with it still in the core data. So we write a new deletion function to achieve to delete all the task associate with this module instead of only deleting the module name in core data
 
 3. User Interface
 - Display of the UI with more than one functionality: As we follow the OOP principle when creating different views, such as ClockView, TimerView, StudyView, etc... All of them works perfectly fine on their own, but when combining them together in one view (eg: adding both ClockView and TimerView in StudyView), the preview won't be able to show the combined view for now, we will have to work on it in the following month.
