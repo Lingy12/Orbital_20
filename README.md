@@ -42,6 +42,7 @@ swift UI. We need to work on the UI design and then implement them with swiftUI.
 - Detect the backward
 - Muti-select and delete
 - Implement the completion of tasks (Using toggle)
+- Use geometryReader to support multiple device and orientation
 
 **3. Code**
 - Change the code to a neater way (Consider the OOP principle, but sometimes it's quite hard for view representation)
