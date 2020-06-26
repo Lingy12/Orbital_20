@@ -3,10 +3,16 @@
 This is the Repository for Orbital project.
 
 ## Menu
-### 1.[Product prototype(Milestone 2)](#Milestone-#2)
-- [Project Status Until The End of June](#Project-Status-Until-The-End-of-June)
-- [Things Need To Be Done in July](#Things-Need-To-Be-Done-in-July)
-- [Problem Encountered](#Problem-Encountered)
+
+### 1.[Product overview](#Team-Name)
+- [Level of Achievement](#Level-of-Achievement)
+- [Aim and Motivation](#Aim-and-Motivation)\
+- [Basic Feature(For milestone #2)](#Basic-Feature)
+- [Extension Feature](#Extension-Feature)
+### 2.[Product prototype(Milestone 2)](#Milestone-2)
+- [Project Status Until The End of June](#1-Project-Status-Until-The-End-of-June)
+- [Things Need To Be Done in July](#2-Things-Need-To-Be-Done-in-July)
+- [Problem Encountered](#3-Problem-Encountered)
 - [Demo](#Demo)
 
 
@@ -23,7 +29,7 @@ With that in mind, time management is really crucial for university life, if you
 
 We want to make a time management application for IOS, so that student can arrange their assignments on the calendar, and use tomato timer during the study time without being distracted by this fantastic world. Also, we provide the analysis of the procedure of finishing this assignment (whether keep delaying the task,etc.) . Using this analyse, user can reflect on themselves about how they feel the assignment, what they can improve, how to be more efficient? We will provide a template for the reflection
 
-## Basic Feature(For Milestone #2)
+## Basic Feature
 - adding/deleting an assignment.
 - Arrange the assignment by the due date.
 - List of assignment and categorize them.
