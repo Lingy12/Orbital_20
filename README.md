@@ -90,3 +90,8 @@ is using @Binding in the sub-view. So that when the parameter change, it will tr
 <img src="Demo/demo4.gif" >
 <p>4.Delete module and associate task</p>
 </div>
+
+<div align="center">
+<img src="Demo/demo5.gif" >
+<p>5.Study view with countdown timer</p>
+</div>
