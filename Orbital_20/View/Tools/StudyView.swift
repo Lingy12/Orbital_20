@@ -49,19 +49,18 @@ struct StudyView: View {
                                         
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                 }.scaleEffect(2)
+                    .padding()
                 
-                Spacer()
+                //Spacer()
                 
                 //ClockView
-                Text("\(timeString(date: date))").bold().scaleEffect(2)
-                    .onAppear(perform: {let _ = self.updateTimer})
+//                Text("\(timeString(date: date))").bold().scaleEffect(2)
+//                    .onAppear(perform: {let _ = self.updateTimer})
                 
                 Spacer()
                 
                 //Timer
-                TimerView()
-                
-                Spacer()
+                TimerView().padding()
             }
         }
     }
