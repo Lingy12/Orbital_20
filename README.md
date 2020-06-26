@@ -6,7 +6,7 @@ This is the Repository for Orbital project.
 GYXX
 
 ## Level of Achievement
-Ganemi
+Genemi
 
 ## Aim and Motivation
 We, college students, all have the problem of procrastinating our assignment till the last minutes. It’s not that we don’t want to get all the work done early, sometimes, there are just too many assignments and we don’t even know where to start.
