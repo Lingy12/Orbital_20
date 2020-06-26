@@ -2,7 +2,13 @@
 
 This is the Repository for Orbital project.
 
-[Milestone 2](#Milestone-#2)
+## Menu
+### 1.[Product prototype(Milestone 2)](#Milestone-#2)
+- [Project Status Until The End of June](#1.-Project-Status-Until-The-End-of-June)
+- [Things Need To Be Done in July](#2.-Things-Need-To-Be-Done-in-July)
+- [Problem Encountered](#3.-Problem-Encountered)
+- [Demo](#Demo)
+
 
 ## Team Name
 GYXX
