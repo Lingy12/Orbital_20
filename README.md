@@ -69,3 +69,6 @@ is using @Binding in the sub-view. So that when the parameter change, it will tr
 - Display of the UI with more than one functionality: As we follow the OOP principle when creating different views, such as ClockView, TimerView, StudyView, etc... All of them works perfectly fine on their own, but when combining them together in one view (eg: adding both ClockView and TimerView in StudyView), the preview won't be able to show the combined view for now, we will have to work on it in the following month.
 - As we transforming the view from purely static to functional, we will have to combine it with the model of our app, as we will need some real examples to run our app, I'm still learning the part of core data, which I'm going to catch up on the following week.
 - Nested navigation view does not have a good look, we need to find a way to resolve this.
+
+### Demo
+![Add new task](Demo/demo1.gif)
