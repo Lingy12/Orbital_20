@@ -31,7 +31,7 @@ struct ModuleTaskView: View {
                     
                     List{
                         ForEach(self.getModuleAssignmentList(),id: \.self) { task in
-                            SingleTaskView(task: task)
+                            SingleTaskView(task: task,isComplete: task.isComplete)
                         }
                     }
                 }

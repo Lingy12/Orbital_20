@@ -38,8 +38,12 @@ struct TaskListView: View {
                         
                         Section(header: Text("Tasks")) {
                             ForEach(self.assignmentList,id:\.self) {assignment in
-                                NavigationLink(destination:StudyView(task: assignment)) {
-                                    SingleTaskView(task: assignment)
+                                ZStack {
+                                    if assignment.name != nil {
+                                        NavigationLink(destination:StudyView(task: assignment)) {
+                                            SingleTaskView(task: assignment,isComplete: assignment.isComplete)
+                                        }
+                                    }
                                 }
                             }.onDelete(perform: deleteTask)
                             
