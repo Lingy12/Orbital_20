@@ -16,7 +16,7 @@ struct AddedTaskView: View {
     var body: some View {
         List {
             ForEach(self.getModuleAssignmentList(),id: \.self){ task in
-                SingleTaskView(task: task,isComplete: task.isComplete)
+                SingleTaskView(task: task)//,isComplete: task.isComplete)
             }
         }
     }

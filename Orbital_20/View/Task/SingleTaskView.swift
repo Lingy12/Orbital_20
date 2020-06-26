@@ -10,15 +10,15 @@ import SwiftUI
 
 struct SingleTaskView: View {
     
-    var task:Task
-    @State var isComplete:Bool
+    @ObservedObject var task:Task
+   // @State var isComplete:Bool
     
     var body: some View {
-        Toggle(isOn: self.$isComplete) {
+        Toggle(isOn: self.$task.isComplete) {
             HStack {
                 VStack{
-                    Text(task.name!).font(.headline)
-                    Text(dateToTime(date: task.due!)).font(.caption)
+                    Text(task.name ?? "").font(.headline)
+                    Text(dateToTime(date: task.due ?? Date())).font(.caption)
                 }
 
                 Spacer()
@@ -27,7 +27,7 @@ struct SingleTaskView: View {
                     .frame(width: 10, height: 10)
                     .foregroundColor(.blue)
 
-                Text(task.modName!).font(.body).opacity(0.7)
+                Text(task.modName ?? "").font(.body).opacity(0.7)
             }
         }.toggleStyle(CheckboxStyle())
       

@@ -39,10 +39,8 @@ struct TaskListView: View {
                         Section(header: Text("Tasks")) {
                             ForEach(self.assignmentList,id:\.self) {assignment in
                                 ZStack {
-                                    if assignment.name != nil {
-                                        NavigationLink(destination:StudyView(task: assignment)) {
-                                            SingleTaskView(task: assignment,isComplete: assignment.isComplete)
-                                        }
+                                    NavigationLink(destination:StudyView(task: assignment)) {
+                                        SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
                                     }
                                 }
                             }.onDelete(perform: deleteTask)
@@ -53,22 +51,40 @@ struct TaskListView: View {
                     
                 }
                 .navigationBarTitle(Text("My Task List"))
-                .navigationBarItems(trailing: EditButton())
             } else {
                 NewTaskView(showCreation: self.$showCreation)
             }
         }
     }
     
-    //TODO:Update deletask(delete from module)
     private func deleteTask(indexSet:IndexSet) {
         for index in indexSet {
             let itemToDelete = assignmentList[index]
+            let name = itemToDelete.modName!
             context.delete(itemToDelete)
+            try? self.context.save()
+            let count = self.countTask(name:name)
+            
+            if count == 0 {
+                for x in self.moduleList.indices {
+                    if self.moduleList[x].moduleName == name {
+                        context.delete(self.moduleList[x])
+                    }
+                }
+            }
         }
         
-        
         try? self.context.save()
+    }
+    
+    private func countTask(name:String) -> Int{
+        var count = 0
+        for index in self.assignmentList.indices {
+            if self.assignmentList[index].modName == name {
+                count += 1
+            }
+        }
+        return count
     }
 }
 
