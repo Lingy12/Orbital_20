@@ -71,9 +71,17 @@ is using @Binding in the sub-view. So that when the parameter change, it will tr
 - Nested navigation view does not have a good look, we need to find a way to resolve this.
 
 ### Demo
-1. Add new task
-![](Demo/demo1.gif)
-2. Add module with tasks
-![](Demo/demo2.gif)
-3. Ordering of the tasks(With respect to due date)
-![](Demo/demo3.gif)
+<div align="center">
+<img src=https://github.com/Lingy12/Orbital_20/tree/master/Demo/demo1.gif" >
+<p>1.Add new task</p>
+</div>
+
+<div align="center">
+<img src=https://github.com/Lingy12/Orbital_20/tree/master/Demo/demo2.gif" >
+<p>2.Add new module with tasks</p>
+</div>
+                                                                          
+<div align="center">
+<img src=https://github.com/Lingy12/Orbital_20/tree/master/Demo/demo3.gif" >
+<p>3.Ordering of tasks</p>
+</div>
