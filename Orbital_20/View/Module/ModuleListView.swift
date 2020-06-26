@@ -52,7 +52,6 @@ struct ModuleListView: View {
                         
                     }
                     .navigationBarTitle(Text("Modules"))
-                    .navigationBarItems(trailing: EditButton())
                 }
             }
         }
