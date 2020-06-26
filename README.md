@@ -1,7 +1,8 @@
 # Orbital_20
 
 This is the Repository for Orbital project.
-[Milestone 2](#Milestone #2)
+
+[Milestone 2](#Milestone-#2)
 
 ## Team Name
 GYXX
