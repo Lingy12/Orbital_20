@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ModuleTaskView: View {
     var module:String
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: false)]) var taskList:FetchedResults<Task>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var taskList:FetchedResults<Task>
     @State var showTaskCreation = false
     
     var body: some View {

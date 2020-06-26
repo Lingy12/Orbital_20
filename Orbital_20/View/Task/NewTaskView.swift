@@ -18,7 +18,7 @@ struct NewTaskView: View {
     @State var planDate = Date()
     @State var moduleName = ""
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: false)]) var assignmentList:FetchedResults<Task>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var assignmentList:FetchedResults<Task>
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     
     var body: some View {
