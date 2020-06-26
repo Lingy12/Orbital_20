@@ -24,22 +24,25 @@ struct ContentView: View {
                         Text("Go to module list")
                             .font(.body)
                             .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
-                            .frame(width:100,height:75,alignment: .center)
+                             .frame(width:100,height:75,alignment: .center)
                         
                     }.padding()
+                   
                 }
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 0.5)
                         .foregroundColor(.blue)
-                    
+                        .frame(width:100,height: 75,alignment: .center)
                     NavigationLink(destination:TaskListView()) {
                         Text("Go to task list")
                             .font(.body)
                             .foregroundColor(Color(hue: 1.0, saturation: 0.62, brightness: 0.301))
-                            .frame(width:100,height: 75,alignment: .center)
+                             .frame(width:100,height:75,alignment: .center)
                         
                     }
                     .padding()
+                    
                     
                 }
                 Button(action:{

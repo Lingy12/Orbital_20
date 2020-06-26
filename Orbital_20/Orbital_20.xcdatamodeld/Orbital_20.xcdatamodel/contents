@@ -6,6 +6,7 @@
     <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
         <attribute name="due" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="modName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="planDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -13,6 +14,6 @@
     </entity>
     <elements>
         <element name="Module" positionX="-3303" positionY="-513" width="128" height="58"/>
-        <element name="Task" positionX="-3846.52734375" positionY="-545.96875" width="128" height="133"/>
+        <element name="Task" positionX="-3846.52734375" positionY="-545.96875" width="128" height="148"/>
     </elements>
 </model>

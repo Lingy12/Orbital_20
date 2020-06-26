@@ -13,14 +13,30 @@ struct SingleTaskView: View {
     var task:Task
     
     var body: some View {
+//        Toggle(isOn: self.$task.isComplete) {
+//            HStack {
+//                VStack{
+//                    Text(task.name!).font(.headline)
+//                    Text(dateToTime(date: task.due!)).font(.caption)
+//                }
+//
+//                Spacer()
+//
+//                Circle()
+//                    .frame(width: 10, height: 10)
+//                    .foregroundColor(.blue)
+//
+//                Text(task.modName!).font(.body).opacity(0.7)
+//            }.toggleStyle(CheckboxStyle())
+//        }
         HStack {
             VStack {
                 Text(task.name!).font(.headline)
                 Text(dateToTime(date: task.due!)).font(.caption)
             }
-            
+
             Spacer()
-            
+
             Text(task.modName!).font(.body).opacity(0.7)
         }
     }

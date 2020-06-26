@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SingleModuleView: View {
-    var module: Module
+    @ObservedObject var module: Module
     var body: some View {
         HStack {
             Text(module.moduleName!)

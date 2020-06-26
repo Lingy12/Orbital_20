@@ -10,7 +10,7 @@ import SwiftUI
 
 struct StudyView: View {
     
-    var task:Task
+    @ObservedObject var task:Task
     @State var date = Date()
     
     var body: some View {
