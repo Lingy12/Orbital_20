@@ -46,6 +46,7 @@ Note: Global task list contains all the task recorded in the system, and each mo
 You can add some tasks when you create the module(default assignment)
 
 **3. Summary**
+
 We have implemented some basic function for this application. But we haven't consider the quality of UI, we only use the default List and NavigationView in 
 swift UI. We need to work on the UI design and then implement them with swiftUI. 
 
