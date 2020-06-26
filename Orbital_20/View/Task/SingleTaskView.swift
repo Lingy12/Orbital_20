@@ -28,7 +28,7 @@ struct SingleTaskView: View {
                     .foregroundColor(.blue)
 
                 Text(task.modName!).font(.body).opacity(0.7)
-            }.toggleStyle(CheckboxStyle())
+            }
         }.toggleStyle(CheckboxStyle())
       
 //        HStack {
