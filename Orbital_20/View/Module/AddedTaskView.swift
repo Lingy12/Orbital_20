@@ -11,7 +11,7 @@ import SwiftUI
 struct AddedTaskView: View {
     var moduleName:String
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: false)]) var assignmentList:FetchedResults<Task>
     
     var body: some View {
         List {

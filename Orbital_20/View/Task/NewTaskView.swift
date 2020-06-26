@@ -18,15 +18,14 @@ struct NewTaskView: View {
     @State var planDate = Date()
     @State var moduleName = ""
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var assignmentList:FetchedResults<Task>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: false)]) var assignmentList:FetchedResults<Task>
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     
     var body: some View {
         Form {
             TextField("Module Name",text: $moduleName)
             TextField("New Task Name", text: $TaskName)
-            DatePicker("Due", selection: $dueDate)
-            
+            DatePicker("Due", selection: $dueDate,in:Date()...)
             VStack {
                 Text("Pick your time for this assignment")
                 
@@ -34,7 +33,7 @@ struct NewTaskView: View {
                 TextField("Minutes",text: $planTime).keyboardType(.numberPad)
             }
             
-            DatePicker("Plan Date",selection: $planDate)
+            DatePicker("Plan Date",selection: $planDate,in: Date()...)
             
             
             Section {
