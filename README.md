@@ -15,7 +15,7 @@ With that in mind, time management is really crucial for university life, if you
 
 We want to make a time management application for IOS, so that student can arrange their assignments on the calendar, and use tomato timer during the study time without being distracted by this fantastic world. Also, we provide the analysis of the procedure of finishing this assignment (whether keep delaying the task,etc.) . Using this analyse, user can reflect on themselves about how they feel the assignment, what they can improve, how to be more efficient? We will provide a template for the reflection
 
-## Basic Feature(For Mileston #2)
+## Basic Feature(For Milestone #2)
 - adding/deleting an assignment.
 - Arrange the assignment by the due date.
 - List of assignment and categorize them.
