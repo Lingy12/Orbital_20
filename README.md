@@ -2,6 +2,44 @@
 
 This is the Repository for Orbital project.
 
+## Menu
+
+### 1.[Product overview](#Team-Name)
+- [Level of Achievement](#Level-of-Achievement)
+- [Aim and Motivation](#Aim-and-Motivation)
+- [Basic Feature(For milestone #2)](#Basic-Feature)
+- [Extension Feature](#Extension-Feature)
+### 2.[Product prototype(Milestone 2)](#Milestone-2)
+- [Project Status Until The End of June](#1-Project-Status-Until-The-End-of-June)
+- [Things Need To Be Done in July](#2-Things-Need-To-Be-Done-in-July)
+- [Problem Encountered](#3-Problem-Encountered)
+- [Demo](#Demo)
+
+
+## Team Name
+GYXX
+
+## Level of Achievement
+Genemi
+
+## Aim and Motivation
+We, college students, all have the problem of procrastinating our assignment till the last minutes. It’s not that we don’t want to get all the work done early, sometimes, there are just too many assignments and we don’t even know where to start.
+					
+With that in mind, time management is really crucial for university life, if you want to have a life other than worrying about all the homework all day. Spending one night rushing everything right before the deadline is not the solution, and clearly does not guarantee a good quality! 
+
+We want to make a time management application for IOS, so that student can arrange their assignments on the calendar, and use tomato timer during the study time without being distracted by this fantastic world. Also, we provide the analysis of the procedure of finishing this assignment (whether keep delaying the task,etc.) . Using this analyse, user can reflect on themselves about how they feel the assignment, what they can improve, how to be more efficient? We will provide a template for the reflection
+
+## Basic Feature
+- adding/deleting an assignment.
+- Arrange the assignment by the due date.
+- List of assignment and categorize them.
+
+## Extension Feature
+- Prioritize the assignment by the preference/importance of the module
+- Dividing the assignment into several subtask
+- Reflection on the assignment, provide feedback, even recommandation
+- Giving statistic about how much time user spent on a certain module
+
 ## Milestone #2
 
 ### 1. Project Status Until The End of June
@@ -22,6 +60,7 @@ Note: Global task list contains all the task recorded in the system, and each mo
 You can add some tasks when you create the module(default assignment)
 
 **3. Summary**
+
 We have implemented some basic function for this application. But we haven't consider the quality of UI, we only use the default List and NavigationView in 
 swift UI. We need to work on the UI design and then implement them with swiftUI. 
 
@@ -89,4 +128,9 @@ is using @Binding in the sub-view. So that when the parameter change, it will tr
 <div align="center">
 <img src="Demo/demo4.gif" >
 <p>4.Delete module and associate task</p>
+</div>
+
+<div align="center">
+<img src="Demo/demo5.gif" >
+<p>5.Study view with countdown timer</p>
 </div>
