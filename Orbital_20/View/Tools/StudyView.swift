@@ -43,7 +43,7 @@ struct StudyView: View {
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                     
                     // TODO: set the time according to user's choice
-                    Text("End at: 17:00").bold().foregroundColor(.blue)
+                    Text("End at \(self.timeString(date: self.date.addingTimeInterval(TimeInterval(self.task.duration * 3600))))")
                                         
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                 }.scaleEffect(2)
@@ -64,7 +64,7 @@ struct StudyView: View {
     
     var timeFormat: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm:ss a"
+        formatter.dateFormat = "mm:ss a"
         return formatter
     }
 
