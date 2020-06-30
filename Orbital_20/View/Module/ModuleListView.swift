@@ -51,7 +51,7 @@ struct ModuleListView: View {
                         }
                         
                     }
-                    .navigationBarTitle(Text("Modules"))
+                .navigationBarTitle(Text("Modules"))
                 }
             }
         }

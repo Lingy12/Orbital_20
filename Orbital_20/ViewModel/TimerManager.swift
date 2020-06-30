@@ -12,17 +12,27 @@ import SwiftUI
 class TimerManager: ObservableObject {
     
     @Published var timerMode: TimerMode = .initial
-    @Published var secondsLeft = UserDefaults.standard.integer(forKey: "timerLength")
-    var timer = Timer()
+    @Published var secondsLeft:Int
+    @ObservedObject var task:Task
     
-    func setTimerLength(minutes: Int) {
+    init(task:Task) {
         let defaults = UserDefaults.standard
-        defaults.set(minutes, forKey: "timerLength")
-        secondsLeft = minutes
+        self.task = task
+        print(task.duration)
+        defaults.set(task.duration * 3600,forKey: "timerLength")
+        self.secondsLeft = Int(task.duration) * 3600
     }
     
+    var timer = Timer()
+//
+//    func setTimerLength(minutes: Int) {
+//        let defaults = UserDefaults.standard
+//        defaults.set(minutes, forKey: "timerLength")
+//        secondsLeft = minutes
+//    }
+    
     func start() {
-        timerMode = .running
+        timerMode = .running //trigger the running mode
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             if (self.secondsLeft == 0) {
                 self.reset()

@@ -28,6 +28,7 @@
 		B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EBC7124A2E6C90080C472 /* NewModuleView.swift */; };
 		B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */; };
 		B8C81FC124A5E6C3002312B6 /* SimplestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C81FC024A5E6C3002312B6 /* SimplestTimer.swift */; };
+		B8C81FC724AACA92002312B6 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C81FC624AACA92002312B6 /* StatsView.swift */; };
 		B8E8B82D24A33AEB002CBA86 /* ModuleTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E8B82C24A33AEB002CBA86 /* ModuleTaskView.swift */; };
 		B8EC593B24A36D140064973B /* ModuleTaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EC593A24A36D140064973B /* ModuleTaskCreationView.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		B89EBC7124A2E6C90080C472 /* NewModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModuleView.swift; sourceTree = "<group>"; };
 		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
 		B8C81FC024A5E6C3002312B6 /* SimplestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplestTimer.swift; sourceTree = "<group>"; };
+		B8C81FC624AACA92002312B6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		B8E8B82C24A33AEB002CBA86 /* ModuleTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTaskView.swift; sourceTree = "<group>"; };
 		B8EC593A24A36D140064973B /* ModuleTaskCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTaskCreationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */,
 				B810E58024A593460000E3E6 /* TimePicker.swift */,
 				B8C81FC024A5E6C3002312B6 /* SimplestTimer.swift */,
+				B8C81FC624AACA92002312B6 /* StatsView.swift */,
 				B845CF0C24A1934C00B9EA8F /* TimerView.swift */,
 			);
 			path = Tools;
@@ -250,6 +253,7 @@
 				B810E58124A593460000E3E6 /* TimePicker.swift in Sources */,
 				B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */,
 				B8C81FC124A5E6C3002312B6 /* SimplestTimer.swift in Sources */,
+				B8C81FC724AACA92002312B6 /* StatsView.swift in Sources */,
 				B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */,
 				B8E8B82D24A33AEB002CBA86 /* ModuleTaskView.swift in Sources */,
 				B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */,

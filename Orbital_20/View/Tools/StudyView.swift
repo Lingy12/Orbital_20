@@ -17,28 +17,26 @@ struct StudyView: View {
         ZStack {
             
             //background
-            Rectangle()
-                .foregroundColor(Color.black)
-                .edgesIgnoringSafeArea(.all)
-            
-            Rectangle()
-                .foregroundColor(Color.white)
-                .rotationEffect(Angle(degrees: 45))
-                .edgesIgnoringSafeArea(.vertical)
-            
+//            Rectangle()
+//                .foregroundColor(Color.black)
+//                .edgesIgnoringSafeArea(.all)
+//
+//            Rectangle()
+//                .foregroundColor(Color.white)
+//                .rotationEffect(Angle(degrees: 45))
+//                .edgesIgnoringSafeArea(.vertical)
+//
             //elements of interfaces
             VStack {
                 
                 VStack {
-                    Text(task.name!)
+                    Text(task.name ?? "")
                     .font(.title)
                 
                 
-                    Text(task.modName!)
+                    Text(task.modName ?? "")
                     .font(.subheadline)
                 }
-                
-                Spacer()
                 
                 //End time
                 HStack {
@@ -57,10 +55,9 @@ struct StudyView: View {
 //                Text("\(timeString(date: date))").bold().scaleEffect(2)
 //                    .onAppear(perform: {let _ = self.updateTimer})
                 
-                Spacer()
                 
                 //Timer
-                TimerView().padding()
+                TimerView(timerManager: TimerManager(task:self.task)).padding()
             }
         }
     }
@@ -76,12 +73,12 @@ struct StudyView: View {
         return time
     }
 
-    var updateTimer: Timer {
-         Timer.scheduledTimer(withTimeInterval: 1, repeats: true,
-                              block: {_ in
-                                 self.date = Date()
-                               })
-    }
+//    var updateTimer: Timer {
+//         Timer.scheduledTimer(withTimeInterval: 1, repeats: true,
+//                              block: {_ in
+//                                 self.date = Date()
+//                               })
+//    }
     
 }
 

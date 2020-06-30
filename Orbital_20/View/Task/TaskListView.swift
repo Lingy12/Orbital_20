@@ -48,9 +48,9 @@ struct TaskListView: View {
                         }
                         
                     }
-                    
+                     .navigationBarTitle(Text("My Task List"))
                 }
-                .navigationBarTitle(Text("My Task List"))
+               
             } else {
                 NewTaskView(showCreation: self.$showCreation)
             }

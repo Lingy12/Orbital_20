@@ -14,11 +14,13 @@ enum TimerMode {
     case initial
 }
 
-func secondsToMinSec(seconds: Int) -> String {
+func secondsToHourMinSec(seconds: Int) -> String {
+    let hours = "\(seconds / 3600)"
     let minutes = "\((seconds % 3600) / 60)"
     let seconds = "\((seconds % 3600) % 60)"
+    let hourStamp = hours.count > 1 ? hours : "0" + hours
     let minuteStamp = minutes.count > 1 ? minutes : "0" + minutes
     let secondStamp = seconds.count > 1 ? seconds : "0" + seconds
     
-    return "\(minuteStamp) : \(secondStamp)"
+    return "\(hourStamp) : \(minuteStamp) : \(secondStamp)"
 }
