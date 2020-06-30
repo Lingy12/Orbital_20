@@ -43,7 +43,7 @@ struct StudyView: View {
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                     
                     // TODO: set the time according to user's choice
-                    Text("End at \(self.timeString(date: self.date.addingTimeInterval(TimeInterval(self.task.duration * 3600))))")
+                    Text("End at \(self.timeString(date:Date(timeIntervalSinceNow: TimeInterval(self.task.duration * 60))))")
                                         
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                 }.scaleEffect(2)
@@ -64,7 +64,7 @@ struct StudyView: View {
     
     var timeFormat: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "mm:ss a"
+        formatter.dateFormat = "HH:mm a"
         return formatter
     }
 
@@ -89,9 +89,3 @@ struct StudyView: View {
 //        StudyView()
 //    }
 //}
-
-struct StudyView_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

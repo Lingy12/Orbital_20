@@ -49,7 +49,7 @@ struct ModuleTaskCreationView: View {
                         
                     }) {
                         Text("Save")
-                            .foregroundColor(.red)
+                            .foregroundColor(.blue)
                     }
                 }
             }

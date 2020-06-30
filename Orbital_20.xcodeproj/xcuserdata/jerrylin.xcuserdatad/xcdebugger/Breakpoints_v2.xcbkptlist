@@ -78,8 +78,8 @@
             filePath = "Orbital_20/View/Task/TaskListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "deleteTask(indexSet:)"
             landmarkType = "7">
          </BreakpointContent>

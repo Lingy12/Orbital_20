@@ -11,7 +11,7 @@ import SwiftUI
 struct SingleTaskView: View {
     
     @ObservedObject var task:Task
-   // @State var isComplete:Bool
+    // @State var isComplete:Bool
     
     var body: some View {
         Toggle(isOn: self.$task.isComplete) {

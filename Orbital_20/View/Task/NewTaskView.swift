@@ -12,8 +12,8 @@ struct NewTaskView: View {
     @Binding var showCreation: Bool
     @State var TaskName = ""
     @State var dueDate = Date()
-//    @State var planHour = 0
-//    @State var planMinutes = 0
+    //    @State var planHour = 0
+    //    @State var planMinutes = 0
     @State var planTime = ""
     @State var planDate = Date()
     @State var moduleName = ""
@@ -22,32 +22,45 @@ struct NewTaskView: View {
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     
     var body: some View {
-        Form {
-            TextField("Module Name",text: $moduleName)
-            TextField("New Task Name", text: $TaskName)
-            DatePicker("Due", selection: $dueDate,in:Date()...)
-            VStack {
-                Text("Pick your time for this assignment")
-                
-//                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
-                TextField("Minutes",text: $planTime).keyboardType(.numberPad)
-            }
-            
-            DatePicker("Plan Date",selection: $planDate,in: Date()...)
-            
-            
-            Section {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
+        VStack {
+            HStack {
+                Button(action:{
+                    self.showCreation.toggle()
+                }) {
+                    Text("<back")
                         .foregroundColor(.blue)
+                        .frame(alignment:.leading)
+                }.frame(alignment:.leading)
+                    .padding()
+                Spacer()
+            }
+            Form {
+                TextField("Module Name",text: $moduleName)
+                TextField("New Task Name", text: $TaskName)
+                DatePicker("Due", selection: $dueDate,in:Date()...)
+                VStack {
+                    Text("Pick your time for this assignment")
                     
-                    Button(action: {
-                        self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
-                        self.showCreation.toggle()
+                    //                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
+                    TextField("Minutes",text: $planTime).keyboardType(.numberPad)
+                }
+                
+                DatePicker("Plan Date",selection: $planDate,in: Date()...)
+                
+                
+                Section {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(.blue)
                         
-                    }) {
-                        Text("save")
-                            .foregroundColor(.red)
+                        Button(action: {
+                            self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
+                            self.showCreation.toggle()
+                            
+                        }) {
+                            Text("save")
+                                .foregroundColor(.black)
+                        }
                     }
                 }
             }

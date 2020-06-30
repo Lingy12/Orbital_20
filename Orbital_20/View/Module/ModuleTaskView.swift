@@ -16,22 +16,28 @@ struct ModuleTaskView: View {
     var body: some View {
         VStack {
             if !showTaskCreation {
-                HStack {
-                    Spacer()
-                    
-                    Button(action:{
-                        self.showTaskCreation.toggle()
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.green)
-                            .imageScale(.large)
+                NavigationView {
+                    HStack {
+                        Spacer()
+                        
+                        Button(action:{
+                            self.showTaskCreation.toggle()
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.green)
+                                .imageScale(.large)
+                        }
                     }
-                }
-                Section(header:Text(module)){
-                    
-                    List{
-                        ForEach(self.getModuleAssignmentList(),id: \.self) { task in
-                            SingleTaskView(task: task)//,isComplete: task.isComplete)
+                    Section(header:Text(module)){
+                        
+                        List{
+                            ForEach(self.getModuleAssignmentList(),id: \.self) { task in
+                                    ZStack {
+                                        NavigationLink(destination:StudyView(task: task)) {
+                                            SingleTaskView(task: task)//,isComplete: assignment.isComplete)
+                                        }
+                                }
+                            }
                         }
                     }
                 }
@@ -52,5 +58,6 @@ struct ModuleTaskView: View {
         
         return assignmentList
     }
+
 }
 
