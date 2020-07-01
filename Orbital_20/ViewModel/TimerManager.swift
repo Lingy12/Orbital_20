@@ -18,7 +18,6 @@ class TimerManager: ObservableObject {
     init(task:Task) {
         let defaults = UserDefaults.standard
         self.task = task
-        print(task.duration)
         defaults.set(Int(task.duration) * 60,forKey: "timerLength")
         self.secondsLeft = Int(task.duration) * 60
     }

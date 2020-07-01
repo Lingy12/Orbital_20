@@ -49,12 +49,15 @@ struct TaskListView: View {
                         }
                         
                     }
-                    .navigationBarTitle(Text("My Task List"))
+                    .navigationBarTitle(Text(module ?? "My Task List"))
                 }
                 
             } else {
-                NewTaskView(showCreation: self.$showCreation)
-                
+                if module != nil {
+                    NewTaskView(showCreation: self.$showCreation, module: module)
+                } else {
+                    NewTaskView(showCreation: self.$showCreation)
+                }
             }
         }
     }
@@ -91,16 +94,16 @@ struct TaskListView: View {
     
     private func getModuleAssignmentList() -> [Task] {
         var assignmentList:[Task] = []
-
+        
         for index in self.assignmentList.indices {
             if self.assignmentList[index].modName == self.module ??  "" {
                 assignmentList.append(self.assignmentList[index])
             }
         }
-
+        
         return assignmentList
     }
-
+    
 }
 
 struct TaskListView_Previews: PreviewProvider {
@@ -109,55 +112,3 @@ struct TaskListView_Previews: PreviewProvider {
     }
 }
 
-////
-////  ModuleTaskView.swift
-////  Orbital_20
-////
-////  Created by Jerry Lin on 24/6/20.
-////  Copyright © 2020 Jerry Lin. All rights reserved.
-////
-//
-//import SwiftUI
-//
-//struct ModuleTaskView: View {
-//    var module:String
-//    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var taskList:FetchedResults<Task>
-//    @State var showTaskCreation = false
-//
-//    var body: some View {
-//        VStack {
-//            if !showTaskCreation {
-//                NavigationView {
-//                    HStack {
-//                        Spacer()
-//
-//                        Button(action:{
-//                            self.showTaskCreation.toggle()
-//                        }) {
-//                            Image(systemName: "plus.circle.fill")
-//                                .foregroundColor(.green)
-//                                .imageScale(.large)
-//                        }
-//                    }
-//                    Section(header:Text(module)){
-//
-//                        List{
-//                            ForEach(self.getModuleAssignmentList(),id: \.self) { task in
-//                                    ZStack {
-//                                        NavigationLink(destination:StudyView(task: task)) {
-//                                            SingleTaskView(task: task)//,isComplete: assignment.isComplete)
-//                                        }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            } else {
-//                ModuleTaskCreationView(showCreation: self.$showTaskCreation, module: module)
-//            }
-//        }
-//    }
-//
-//
-//}
-//

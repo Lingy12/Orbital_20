@@ -20,33 +20,39 @@ struct NewTaskView: View {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var assignmentList:FetchedResults<Task>
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
+    var module:String?
     
     var body: some View {
         VStack {
-            HStack {
-                Button(action:{
-                    self.showCreation.toggle()
-                }) {
-                    Text("<back")
-                        .foregroundColor(.blue)
-                        .frame(alignment:.leading)
-                }.frame(alignment:.leading)
-                    .padding()
-                Spacer()
+            if module == nil {
+                HStack {
+                    Button(action:{
+                        self.showCreation.toggle()
+                    }) {
+                        Text("<back")
+                            .foregroundColor(.blue)
+                            .frame(alignment:.leading)
+                    }.frame(alignment:.leading)
+                        .padding()
+                    Spacer()
+                }
             }
             Form {
-                TextField("Module Name",text: $moduleName)
-                TextField("New Task Name", text: $TaskName)
-                DatePicker("Due", selection: $dueDate,in:Date()...)
-                VStack {
-                    Text("Pick your time for this assignment")
+                Section(header:Text(module == nil ? "Creating New Task" : "Creating new Task for \(module!)")) {
+                    if module == nil {
+                        TextField("Module Name",text: $moduleName)
+                    }
+                    TextField("New Task Name", text: $TaskName)
+                    DatePicker("Due", selection: $dueDate,in:Date()...)
+                    VStack {
+                        Text("Pick your time for this assignment")
+                        
+                        //                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
+                        TextField("Minutes",text: $planTime).keyboardType(.numberPad)
+                    }
                     
-                    //                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
-                    TextField("Minutes",text: $planTime).keyboardType(.numberPad)
+                    DatePicker("Plan Date",selection: $planDate,in: Date()...)
                 }
-                
-                DatePicker("Plan Date",selection: $planDate,in: Date()...)
-                
                 
                 Section {
                     ZStack {
@@ -90,11 +96,5 @@ struct NewTaskView: View {
             }
         }
         return false
-    }
-}
-
-struct NewTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

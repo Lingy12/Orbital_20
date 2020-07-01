@@ -10,7 +10,6 @@
 		0E8808DA249BEBBC00F2C36E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8808D9249BEBBC00F2C36E /* StudyView.swift */; };
 		0E8808DC249BEBC300F2C36E /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8808DB249BEBC300F2C36E /* TaskListView.swift */; };
 		0E8808E0249BED4800F2C36E /* SingleTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8808DF249BED4800F2C36E /* SingleTaskView.swift */; };
-		0EBC03EE24A1A63E00633356 /* ModuleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC03ED24A1A63E00633356 /* ModuleListView.swift */; };
 		0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC03EF24A1A78000633356 /* SingleModuleView.swift */; };
 		0EE85EB924A27E67006F4E3D /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE85EB824A27E67006F4E3D /* TimerManager.swift */; };
 		B810E57F24A589EC0000E3E6 /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */; };
@@ -27,17 +26,14 @@
 		B8755486247225F8005E2E47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8755484247225F8005E2E47 /* LaunchScreen.storyboard */; };
 		B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EBC7124A2E6C90080C472 /* NewModuleView.swift */; };
 		B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */; };
-		B8C81FC124A5E6C3002312B6 /* SimplestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C81FC024A5E6C3002312B6 /* SimplestTimer.swift */; };
 		B8C81FC724AACA92002312B6 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C81FC624AACA92002312B6 /* StatsView.swift */; };
-		B8E8B82D24A33AEB002CBA86 /* ModuleTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E8B82C24A33AEB002CBA86 /* ModuleTaskView.swift */; };
-		B8EC593B24A36D140064973B /* ModuleTaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EC593A24A36D140064973B /* ModuleTaskCreationView.swift */; };
+		B8F339F024AC2A2C00D193FB /* ModuleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E8808D9249BEBBC00F2C36E /* StudyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		0E8808DB249BEBC300F2C36E /* TaskListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		0E8808DF249BED4800F2C36E /* SingleTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskView.swift; sourceTree = "<group>"; };
-		0EBC03ED24A1A63E00633356 /* ModuleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleListView.swift; sourceTree = "<group>"; };
 		0EBC03EF24A1A78000633356 /* SingleModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModuleView.swift; sourceTree = "<group>"; };
 		0EE85EB824A27E67006F4E3D /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
@@ -56,10 +52,8 @@
 		B8755487247225F8005E2E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B89EBC7124A2E6C90080C472 /* NewModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModuleView.swift; sourceTree = "<group>"; };
 		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
-		B8C81FC024A5E6C3002312B6 /* SimplestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplestTimer.swift; sourceTree = "<group>"; };
 		B8C81FC624AACA92002312B6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
-		B8E8B82C24A33AEB002CBA86 /* ModuleTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTaskView.swift; sourceTree = "<group>"; };
-		B8EC593A24A36D140064973B /* ModuleTaskCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTaskCreationView.swift; sourceTree = "<group>"; };
+		B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleListView.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/ModuleListView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,10 +130,8 @@
 		B8E8B82E24A33B3F002CBA86 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				0EBC03ED24A1A63E00633356 /* ModuleListView.swift */,
-				B8E8B82C24A33AEB002CBA86 /* ModuleTaskView.swift */,
-				B8EC593A24A36D140064973B /* ModuleTaskCreationView.swift */,
 				B89EBC7124A2E6C90080C472 /* NewModuleView.swift */,
+				B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */,
 				B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */,
 				0EBC03EF24A1A78000633356 /* SingleModuleView.swift */,
 			);
@@ -149,8 +141,6 @@
 		B8E8B83024A33B8C002CBA86 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				0E8808DB249BEBC300F2C36E /* TaskListView.swift */,
-				B845CF0824A1898F00B9EA8F /* NewTaskView.swift */,
 				0E8808DF249BED4800F2C36E /* SingleTaskView.swift */,
 			);
 			path = Task;
@@ -162,8 +152,9 @@
 				0E8808D9249BEBBC00F2C36E /* StudyView.swift */,
 				B810E57E24A589EC0000E3E6 /* CheckboxStyle.swift */,
 				B810E58024A593460000E3E6 /* TimePicker.swift */,
-				B8C81FC024A5E6C3002312B6 /* SimplestTimer.swift */,
+				B845CF0824A1898F00B9EA8F /* NewTaskView.swift */,
 				B8C81FC624AACA92002312B6 /* StatsView.swift */,
+				0E8808DB249BEBC300F2C36E /* TaskListView.swift */,
 				B845CF0C24A1934C00B9EA8F /* TimerView.swift */,
 			);
 			path = Tools;
@@ -252,13 +243,11 @@
 				B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */,
 				B810E58124A593460000E3E6 /* TimePicker.swift in Sources */,
 				B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */,
-				B8C81FC124A5E6C3002312B6 /* SimplestTimer.swift in Sources */,
 				B8C81FC724AACA92002312B6 /* StatsView.swift in Sources */,
 				B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */,
-				B8E8B82D24A33AEB002CBA86 /* ModuleTaskView.swift in Sources */,
 				B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */,
+				B8F339F024AC2A2C00D193FB /* ModuleListView.swift in Sources */,
 				B875547C247225F5005E2E47 /* Orbital_20.xcdatamodeld in Sources */,
-				B8EC593B24A36D140064973B /* ModuleTaskCreationView.swift in Sources */,
 				0EE85EB924A27E67006F4E3D /* TimerManager.swift in Sources */,
 				0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */,
 				B810E57F24A589EC0000E3E6 /* CheckboxStyle.swift in Sources */,
@@ -267,7 +256,6 @@
 				B845CF0D24A1934C00B9EA8F /* TimerView.swift in Sources */,
 				B8755479247225F5005E2E47 /* SceneDelegate.swift in Sources */,
 				0E8808E0249BED4800F2C36E /* SingleTaskView.swift in Sources */,
-				0EBC03EE24A1A63E00633356 /* ModuleListView.swift in Sources */,
 				0E8808DC249BEBC300F2C36E /* TaskListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

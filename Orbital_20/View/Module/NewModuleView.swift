@@ -22,6 +22,17 @@ struct NewModuleView: View {
         
         ZStack {
             if !self.showTaskCreation {
+                HStack {
+                    Button(action:{
+                        self.showTaskCreation.toggle()
+                    }) {
+                        Text("<back")
+                            .foregroundColor(.blue)
+                            .frame(alignment:.leading)
+                    }.frame(alignment:.leading)
+                        .padding()
+                    Spacer()
+                }
                 Form {
                     Section(header:Text("Add new module")) {
                         TextField("New Module Name",text: $moduleName)
@@ -58,7 +69,7 @@ struct NewModuleView: View {
                     }
                 }
             } else {
-                ModuleTaskCreationView(showCreation: self.$showTaskCreation,module:self.moduleName)
+                NewTaskView(showCreation: self.$showTaskCreation,module:self.moduleName)
             }
         }
         
