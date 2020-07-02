@@ -14,6 +14,7 @@ struct TaskListView: View {
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var assignmentList:FetchedResults<Task>
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     @State var showCreation = false
+    @State var showStudy = false
     var module:String?
     
     
@@ -42,7 +43,7 @@ struct TaskListView: View {
                                 ZStack {
                                     NavigationLink(destination:StudyView(task: assignment)) {
                                         SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
-                                    }
+                                    }.navigationBarBackButtonHidden(self.module != nil)
                                 }
                             }.onDelete(perform: deleteTask)
                             

@@ -11,9 +11,11 @@ import SwiftUI
 
 class TimerManager: ObservableObject {
     
+    @Environment(\.managedObjectContext) var context
     @Published var timerMode: TimerMode = .initial
     @Published var secondsLeft:Int
     @ObservedObject var task:Task
+    @FetchRequest(entity: Module.entity(), sortDescriptors: []) var modList:FetchedResults<Module>
     
     init(task:Task) {
         let defaults = UserDefaults.standard
@@ -23,15 +25,13 @@ class TimerManager: ObservableObject {
     }
     
     var timer = Timer()
-//
-//    func setTimerLength(minutes: Int) {
-//        let defaults = UserDefaults.standard
-//        defaults.set(minutes, forKey: "timerLength")
-//        secondsLeft = minutes
-//    }
+
     
     func start() {
         timerMode = .running //trigger the running mode
+        self.task.startTime = Date()
+        try? self.context.save()
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             if (self.secondsLeft == 0) {
                 self.reset()
@@ -50,6 +50,15 @@ class TimerManager: ObservableObject {
     
     func pause() {
         self.timerMode = .paused
+        let nowtime = Date()
+        //update the time associate with module
+        
+        for index in self.modList.indices {
+            if modList[index].moduleName == task.modName {
+                modList[index].spentTime = nowtime.timeIntervalSince(self.task.startTime ?? Date())
+            }
+        }
+        
         timer.invalidate()
     }
     

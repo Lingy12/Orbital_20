@@ -9,8 +9,14 @@
 import SwiftUI
 
 struct StatsView: View {
+    @FetchRequest(entity: Module.entity(), sortDescriptors: []) var modList:FetchedResults<Module>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(modList,id:\.self) { mod in
+                SingleStatView(module: mod)
+            }
+        }
     }
 }
 
