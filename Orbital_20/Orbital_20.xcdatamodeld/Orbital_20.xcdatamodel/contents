@@ -11,10 +11,9 @@
         <attribute name="modName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="planDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
         <element name="Module" positionX="-3303" positionY="-513" width="128" height="73"/>
-        <element name="Task" positionX="-3846.52734375" positionY="-545.96875" width="128" height="148"/>
+        <element name="Task" positionX="-3846.52734375" positionY="-545.96875" width="128" height="133"/>
     </elements>
 </model>

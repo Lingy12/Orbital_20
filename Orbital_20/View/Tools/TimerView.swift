@@ -10,6 +10,9 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject var timerManager:TimerManager
+    @FetchRequest(entity: Module.entity(), sortDescriptors: []) var modList:FetchedResults<Module>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) var taskList:FetchedResults<Task>
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         VStack {
@@ -50,6 +53,7 @@ struct TimerView: View {
             } else {
                 Button(action:{
                     self.timerManager.pause()
+                    self.updateModuleTIme(time: Date().timeIntervalSince(self.timerManager.startTime ?? Date()))
                 }) {
                     Image(systemName: "pause.circle")
                     Text("Pause")
@@ -57,5 +61,24 @@ struct TimerView: View {
             }
         }
     }
+    
+    
+    func getAssociateModuleIndex() -> Int? {
+        for index in self.modList.indices {
+            if self.modList[index].moduleName == self.timerManager.task.modName {
+                return index
+            }
+        }
+        
+        return nil
+    }
+    
+    func updateModuleTIme(time:TimeInterval) {
+        let index = self.getAssociateModuleIndex()
+        let spent = self.modList[index!].spentTime
+        self.modList[index!].spentTime = spent + time
+        try? self.context.save()
+    }
+    
 }
 
