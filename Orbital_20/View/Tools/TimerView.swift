@@ -13,7 +13,10 @@ struct TimerView: View {
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var modList:FetchedResults<Module>
     @FetchRequest(entity: Task.entity(), sortDescriptors: []) var taskList:FetchedResults<Task>
     @Environment(\.managedObjectContext) var context
-    
+    @Binding var showExtendPicker:Bool
+    @ObservedObject var task:Task
+    @State var pickedTime = ""
+
     var body: some View {
         VStack {
             Text("Timer Remaining:").bold().foregroundColor(.blue)
@@ -33,10 +36,10 @@ struct TimerView: View {
                     Button(action: {
                         self.timerManager.start()
                     }) {
-                            VStack {
-                                Image(systemName: "goforward")
-                                Text("Continue")
-                            }
+                        VStack {
+                            Image(systemName: "goforward")
+                            Text("Continue")
+                        }
                     }
                     
                     Button(action:{
@@ -50,13 +53,31 @@ struct TimerView: View {
                         }
                     }
                 }
-            } else {
+            } else if(timerManager.timerMode == .running){
                 Button(action:{
                     self.timerManager.pause()
                     self.updateModuleTIme(time: Date().timeIntervalSince(self.timerManager.startTime ?? Date()))
                 }) {
                     Image(systemName: "pause.circle")
                     Text("Pause")
+                }
+            } else {
+                Button(action:{
+                    self.showExtendPicker.toggle()
+                }) {
+                    Text("Extend")
+                }
+                
+                if showExtendPicker {
+                    TextField("Pick the time to extend", text: $pickedTime)
+                    
+                    Button(action:{
+                        self.extend(for: Int16(self.pickedTime) ?? 0)
+                        self.showExtendPicker.toggle()
+                    }) {
+                        Text("Confirm")
+                            .foregroundColor(.blue)
+                    }
                 }
             }
         }
@@ -80,5 +101,13 @@ struct TimerView: View {
         try? self.context.save()
     }
     
+    func extend(for time:Int16) {
+         self.task.duration = time
+         self.task.extendCount += 1
+         try? self.context.save()
+        timerManager.set(time: Int(time))
+        
+     }
+     
 }
 

@@ -12,6 +12,7 @@ enum TimerMode {
     case running
     case paused
     case initial
+    case end
 }
 
 func secondsToHourMinSec(seconds: Int) -> String {

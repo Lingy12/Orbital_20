@@ -80,6 +80,7 @@ struct NewTaskView: View {
         newAssignment.planDate = plan
         newAssignment.isComplete = false
         newAssignment.duration = time
+        newAssignment.extendCount = 0
         if !self.haveMod(modname: module) {
             let newMod = Module(context: context)
             newMod.moduleName = module

@@ -12,6 +12,9 @@ struct StudyView: View {
     
     @ObservedObject var task:Task
     @State var date = Date()
+    @State  var showExtendPicker = false
+    
+
     
     var body: some View {
         ZStack {
@@ -51,13 +54,11 @@ struct StudyView: View {
                 
                 //Spacer()
                 
-                //ClockView
-//                Text("\(timeString(date: date))").bold().scaleEffect(2)
-//                    .onAppear(perform: {let _ = self.updateTimer})
-                
-                
                 //Timer
-                TimerView(timerManager: TimerManager(task:self.task)).padding()
+                TimerView(timerManager: TimerManager(task:self.task),showExtendPicker:self.$showExtendPicker,task:self.task
+                ).padding()
+                
+                
             }
         }
     }
@@ -73,19 +74,8 @@ struct StudyView: View {
         return time
     }
 
-//    var updateTimer: Timer {
-//         Timer.scheduledTimer(withTimeInterval: 1, repeats: true,
-//                              block: {_ in
-//                                 self.date = Date()
-//                               })
-//    }
-    
+ 
 }
 
 
 
-//struct StudyView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StudyView()
-//    }
-//}

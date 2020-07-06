@@ -32,7 +32,7 @@ class TimerManager: ObservableObject {
         timerMode = .running //trigger the running mode
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             if (self.secondsLeft == 0) {
-                self.reset()
+                self.end()
             }
             self.secondsLeft -= 1
         })
@@ -40,9 +40,21 @@ class TimerManager: ObservableObject {
         self.startTime = Date()
     }
     
+    func set(time:Int) {
+        let defaults = UserDefaults.standard
+        defaults.set(time * 60, forKey: "timerLength")
+        self.secondsLeft = time
+    }
+    
     func reset() {
         self.timerMode = .initial
         self.secondsLeft = UserDefaults.standard.integer(forKey: "timerLength")
+        timer.invalidate()
+    }
+    
+    func end() {
+        self.timerMode = .end
+        self.secondsLeft = 0
         timer.invalidate()
     }
     
