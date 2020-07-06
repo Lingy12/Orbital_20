@@ -24,7 +24,7 @@ struct TaskListView: View {
             if !self.showCreation {
                 if module == nil {
                     NavigationView {
-                       taskList.navigationBarTitle(Text("My Task List"))
+                        taskList.navigationBarTitle(Text("My Task List"))
                     }
                 } else {
                     taskList.navigationBarTitle(Text(module!))

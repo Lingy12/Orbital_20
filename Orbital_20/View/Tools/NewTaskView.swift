@@ -29,9 +29,14 @@ struct NewTaskView: View {
                     Button(action:{
                         self.showCreation.toggle()
                     }) {
-                        Text("<back")
-                            .foregroundColor(.blue)
-                            .frame(alignment:.leading)
+                        HStack {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.blue)
+                                .frame(alignment:.leading)
+                            Text("back")
+                                .foregroundColor(.blue)
+                                .frame(alignment:.leading)
+                        }
                     }.frame(alignment:.leading)
                         .padding()
                     Spacer()
