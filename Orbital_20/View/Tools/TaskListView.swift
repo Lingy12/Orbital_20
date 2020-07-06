@@ -22,37 +22,13 @@ struct TaskListView: View {
         VStack {
             //Navigation view
             if !self.showCreation {
-                NavigationView {
-                    List {
-                        Section(header: Text ("Add new task")) {
-                            HStack {
-                                Button(action: {
-                                    self.showCreation.toggle()
-                                }) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.green)
-                                        .imageScale(.large)
-                                }
-                            }
-                        }.font(.headline)
-                        
-                        
-                        
-                        Section(header: Text("Tasks")) {
-                            ForEach(self.assignmentList,id:\.self) {assignment in
-                                ZStack {
-                                    NavigationLink(destination:StudyView(task: assignment)) {
-                                        SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
-                                    }.navigationBarBackButtonHidden(self.module != nil)
-                                }
-                            }.onDelete(perform: deleteTask)
-                            
-                        }
-                        
+                if module == nil {
+                    NavigationView {
+                       taskList.navigationBarTitle(Text("My Task List"))
                     }
-                    .navigationBarTitle(Text(module ?? "My Task List"))
+                } else {
+                    taskList.navigationBarTitle(Text(module!))
                 }
-                
             } else {
                 if module != nil {
                     NewTaskView(showCreation: self.$showCreation, module: module)
@@ -105,6 +81,35 @@ struct TaskListView: View {
         return assignmentList
     }
     
+    private var taskList: some View {
+        List {
+            Section(header: Text ("Add new task")) {
+                HStack {
+                    Button(action: {
+                        self.showCreation.toggle()
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(.green)
+                            .imageScale(.large)
+                    }
+                }
+            }.font(.headline)
+            
+            
+            
+            Section(header: Text("Tasks")) {
+                ForEach(self.assignmentList,id:\.self) {assignment in
+                    ZStack {
+                        NavigationLink(destination:StudyView(task: assignment)) {
+                            SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
+                        }
+                    }
+                }.onDelete(perform: deleteTask)
+                
+            }
+            
+        }
+    }
 }
 
 struct TaskListView_Previews: PreviewProvider {
