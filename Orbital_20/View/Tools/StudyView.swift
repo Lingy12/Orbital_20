@@ -60,7 +60,23 @@ struct StudyView: View {
                 
                 
             }
-        }
+        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
+         
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: { (status, _) in
+                if status {
+                    let content = UNMutableNotificationContent()
+                    content.title = "Study"
+                    content.body = "Go back to study !"
+                       print("Go back to study!")
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+                    
+                    let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
+                    
+                    UNUserNotificationCenter.current().add(request,withCompletionHandler: nil)
+                    return
+                }
+            })
+        })
     }
     
     var timeFormat: DateFormatter {

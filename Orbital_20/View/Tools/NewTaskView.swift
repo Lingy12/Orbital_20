@@ -92,7 +92,37 @@ struct NewTaskView: View {
             try? self.context.save()
         }
         newAssignment.modName = module
+        
+        
+        
         try? self.context.save()
+        
+        //notification for due
+        var daycomponent = DateComponents()
+        daycomponent.day = -1
+        let content = UNMutableNotificationContent()
+        content.title = "\(module)"
+        content.body = "\(name) due in one day"
+        let calendar = Calendar.current
+        let nextTriggerDay = calendar.date(byAdding: daycomponent, to: date)!
+        let triggerComp = Calendar.current.dateComponents([.year,.month,.day], from: nextTriggerDay)
+        //create trigger
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComp, repeats: false)
+        //create request
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request, withCompletionHandler: nil)
+        
+        //notification for plan
+        let content1 = UNMutableNotificationContent()
+        content1.title = "\(module)"
+        content1.body = "Time to start \(name)"
+        let triggerComp1 = Calendar.current.dateComponents([.year,.month,.day], from: plan)
+        let trigger1 = UNCalendarNotificationTrigger(dateMatching: triggerComp1, repeats: false)
+        let id = UUID().uuidString
+        let request1 = UNNotificationRequest(identifier: id, content: content, trigger: trigger1)
+        notificationCenter.add(request1, withCompletionHandler: nil)
     }
     
     private func haveMod(modname:String) -> Bool {
