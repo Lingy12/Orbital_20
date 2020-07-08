@@ -105,7 +105,7 @@ struct NewTaskView: View {
         content.body = "\(name) due in one day"
         let calendar = Calendar.current
         let nextTriggerDay = calendar.date(byAdding: daycomponent, to: date)!
-        let triggerComp = Calendar.current.dateComponents([.year,.month,.day], from: nextTriggerDay)
+        let triggerComp = Calendar.current.dateComponents([.month,.day], from: nextTriggerDay)
         //create trigger
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComp, repeats: false)
         //create request
@@ -113,12 +113,12 @@ struct NewTaskView: View {
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request, withCompletionHandler: nil)
-        
+        print("scheduled")
         //notification for plan
         let content1 = UNMutableNotificationContent()
         content1.title = "\(module)"
         content1.body = "Time to start \(name)"
-        let triggerComp1 = Calendar.current.dateComponents([.year,.month,.day], from: plan)
+        let triggerComp1 = Calendar.current.dateComponents([.month,.day], from: plan)
         let trigger1 = UNCalendarNotificationTrigger(dateMatching: triggerComp1, repeats: false)
         let id = UUID().uuidString
         let request1 = UNNotificationRequest(identifier: id, content: content, trigger: trigger1)
