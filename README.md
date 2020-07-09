@@ -76,11 +76,10 @@ We have implemented some basic functions for this application. But we haven't co
 - Testing and find out the bugs
 - Implement the Notification mechanism
 - Implement the ordering of the task
-- Implement the auto-reflecting mechanism (Using the time of reflection, give the user feedback about how well they plan the time)
 - Detect the backward
 - Muti-select and delete
 - Implement the completion of tasks (Using toggle)
-- Use geometryReader to support multiple device and orientation
+
 
 **3. Code**
 - Change the code to a neater way (Consider the OOP principle, but sometimes it's quite hard for view representation)
