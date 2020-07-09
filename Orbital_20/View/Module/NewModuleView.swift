@@ -22,17 +22,15 @@ struct NewModuleView: View {
         
         ZStack {
             if !self.showTaskCreation {
-                HStack {
-                    Button(action:{
-                        self.showTaskCreation.toggle()
-                    }) {
-                        Text("<back")
-                            .foregroundColor(.blue)
-                            .frame(alignment:.leading)
-                    }.frame(alignment:.leading)
-                        .padding()
-                    Spacer()
-                }
+                Button(action: {
+                    self.showModcreation.toggle()
+                }) {
+                    Image(systemName: "multiply.circle")
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .opacity(0.8)
+                }.frame(alignment: .center)
+                
                 Form {
                     Section(header:Text("Add new module")) {
                         TextField("New Module Name",text: $moduleName)

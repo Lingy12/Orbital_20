@@ -24,24 +24,15 @@ struct NewTaskView: View {
     
     var body: some View {
         VStack {
-            if module == nil {
-                HStack {
-                    Button(action:{
-                        self.showCreation.toggle()
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.blue)
-                                .frame(alignment:.leading)
-                            Text("back")
-                                .foregroundColor(.blue)
-                                .frame(alignment:.leading)
-                        }
-                    }.frame(alignment:.leading)
-                        .padding()
-                    Spacer()
-                }
-            }
+            Button(action: {
+                self.showCreation.toggle()
+            }) {
+                Image(systemName: "multiply.circle")
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .opacity(0.8)
+            }.frame(alignment: .center)
+            
             Form {
                 Section(header:Text(module == nil ? "Creating New Task" : "Creating new Task for \(module!)")) {
                     if module == nil {
@@ -105,7 +96,7 @@ struct NewTaskView: View {
         content.body = "\(name) due in one day"
         let calendar = Calendar.current
         let nextTriggerDay = calendar.date(byAdding: daycomponent, to: date)!
-        let triggerComp = Calendar.current.dateComponents([.month,.day], from: nextTriggerDay)
+        let triggerComp = Calendar.current.dateComponents([.year,.month,.day], from: nextTriggerDay)
         //create trigger
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComp, repeats: false)
         //create request
@@ -114,11 +105,12 @@ struct NewTaskView: View {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request, withCompletionHandler: nil)
         print("scheduled")
+        
         //notification for plan
         let content1 = UNMutableNotificationContent()
         content1.title = "\(module)"
         content1.body = "Time to start \(name)"
-        let triggerComp1 = Calendar.current.dateComponents([.month,.day], from: plan)
+        let triggerComp1 = Calendar.current.dateComponents([.year,.month,.day], from: plan)
         let trigger1 = UNCalendarNotificationTrigger(dateMatching: triggerComp1, repeats: false)
         let id = UUID().uuidString
         let request1 = UNNotificationRequest(identifier: id, content: content, trigger: trigger1)
