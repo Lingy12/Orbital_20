@@ -27,30 +27,24 @@ struct TaskListView: View {
                 if module == nil {
                     NavigationView {
                         if mutiSelectMode {
-                            taskList.navigationBarItems(leading: label(textContent: "My Task List"), trailing: deleteButton)
+                            taskList.navigationBarItems(trailing: deleteButton)
                         } else {
-                            taskList.navigationBarItems(leading: label(textContent: "My Task List"), trailing: addButton)
+                            taskList.navigationBarItems(trailing: addButton)
                         }
                     }
                 } else {
                     if mutiSelectMode {
-                        taskList.navigationBarItems(leading: label(textContent: module!), trailing: deleteButton)
+                        taskList.navigationBarItems(trailing: deleteButton)
                     } else {
-                        taskList.navigationBarItems(leading: label(textContent: module!), trailing: addButton)
+                        taskList.navigationBarItems(trailing: addButton)
                     }
                 }
             } else {
-                if module != nil {
                     NewTaskView(showCreation: self.$showCreation, module: module)
-                } else {
-                    NewTaskView(showCreation: self.$showCreation)
-                }
+                        .transition(.scale)
+                        .animation(.linear)
             }
         }
-    }
-    
-    private func label(textContent:String) -> some View {
-        return Text(textContent)
     }
     
     private var addButton: some View {
@@ -149,11 +143,14 @@ struct TaskListView: View {
                             }.onLongPressGesture {
                                 self.mutiSelectMode = true
                             }
+                            .transition(.opacity)
+                            .animation(.linear(duration: 2))
                         }
                     }.onDelete(perform: deleteTask)
                 }
                 
             }
+            .navigationBarTitle(module ?? "My Task List")
         }
     }
 }

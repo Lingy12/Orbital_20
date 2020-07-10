@@ -45,8 +45,8 @@ struct SingleTaskView: View {
                 
                 Text(task.modName ?? "").font(.body).opacity(0.7)
             }
-            
-        }.foregroundColor(isselected ? .gray : .clear)
+        }
+//        }.foregroundColor(isselected ? .gray : .white)
     }
     
     func dateToTime(date:Date) -> String {
