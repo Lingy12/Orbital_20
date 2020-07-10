@@ -15,22 +15,38 @@ struct SingleTaskView: View {
     var isselected:Bool = false
     
     var body: some View {
-        Toggle(isOn: self.$task.isComplete) {
-            HStack {
-                VStack{
-                    Text(task.name ?? "").font(.headline)
-                    Text(dateToTime(date: task.due ?? Date())).font(.caption)
-                }
-
-                Spacer()
-
+        ZStack {
+            if isselected {
+                singleTask
+            } else {
+                Toggle(isOn: self.$task.isComplete) {
+                    singleTask
+                }.toggleStyle(CheckboxStyle())
+            }
+        }
+    }
+    
+    var singleTask: some View {
+        HStack {
+            VStack{
+                Text(task.name ?? "").font(.headline)
+                Text(dateToTime(date: task.due ?? Date())).font(.caption)
+            }
+            
+            Spacer()
+            
+            if isselected {
+                Image(systemName: "checkmark")
+                    .foregroundColor(.black)
+            } else {
                 Circle()
                     .frame(width: 10, height: 10)
                     .foregroundColor(.blue)
-
+                
                 Text(task.modName ?? "").font(.body).opacity(0.7)
             }
-        }.toggleStyle(CheckboxStyle())
+            
+        }.foregroundColor(isselected ? .gray : .clear)
     }
     
     func dateToTime(date:Date) -> String {

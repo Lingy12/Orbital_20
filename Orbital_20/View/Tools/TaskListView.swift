@@ -26,10 +26,18 @@ struct TaskListView: View {
             if !self.showCreation {
                 if module == nil {
                     NavigationView {
-                        taskList.navigationBarTitle(Text("My Task List"))
+                        if mutiSelectMode {
+                            taskList.navigationBarItems(leading: label(textContent: "My Task List"), trailing: deleteButton)
+                        } else {
+                            taskList.navigationBarItems(leading: label(textContent: "My Task List"), trailing: addButton)
+                        }
                     }
                 } else {
-                    taskList.navigationBarTitle(Text(module!))
+                    if mutiSelectMode {
+                        taskList.navigationBarItems(leading: label(textContent: module!), trailing: deleteButton)
+                    } else {
+                        taskList.navigationBarItems(leading: label(textContent: module!), trailing: addButton)
+                    }
                 }
             } else {
                 if module != nil {
@@ -38,6 +46,28 @@ struct TaskListView: View {
                     NewTaskView(showCreation: self.$showCreation)
                 }
             }
+        }
+    }
+    
+    private func label(textContent:String) -> some View {
+        return Text(textContent)
+    }
+    
+    private var addButton: some View {
+        Button(action: {
+            self.showCreation.toggle()
+        }) {
+            Image(systemName: "plus.circle.fill")
+                .foregroundColor(.green)
+                .imageScale(.large)
+        }
+    }
+    
+    private var deleteButton : some View {
+        Button(action: {
+            self.deleteSet(set: self.selection)
+        }) {
+            Text("Delete").foregroundColor(.red)
         }
     }
     
@@ -73,13 +103,27 @@ struct TaskListView: View {
     
     private func deleteTask(task:Task) {
         let index = assignmentList.firstIndex(of: task)!
-        context.delete(assignmentList[index])
+        let itemToDelete = assignmentList[index]
+        let name = itemToDelete.modName!
+        context.delete(itemToDelete)
+        try? self.context.save()
+        let count = self.countTask(name:name)
+        
+        if count == 0 {
+            for x in self.moduleList.indices {
+                if self.moduleList[x].moduleName == name {
+                    context.delete(self.moduleList[x])
+                }
+            }
+        }
+        
         try? self.context.save()
     }
     
-    private func deleteSet(set:[Int]) {
-        for index in set.indices {
-            deleteTask(task: assignmentList[set[index]])
+    //TODO:Handle optional
+    private func deleteSet(set:[Int]?) {
+        for index in set!.indices {
+            deleteTask(task: assignmentList[set![index]])
         }
     }
     private func getModuleAssignmentList() -> [Task] {
@@ -95,33 +139,21 @@ struct TaskListView: View {
     }
     
     private var taskList: some View {
-        List {
-            Section(header: Text ("Add new task")) {
-                HStack {
-                    Button(action: {
-                        self.showCreation.toggle()
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.green)
-                            .imageScale(.large)
-                    }
-                }
-            }.font(.headline)
-            
-            
-            
-            Section(header: Text("Tasks")) {
-                ForEach(self.assignmentList,id:\.self) {assignment in
-                    ZStack {
-                        NavigationLink(destination:StudyView(task: assignment)) {
-                            SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
-                        }.onLongPressGesture {
-                            self.mutiSelectMode = true
+        VStack {
+            List {
+                Section(header: Text("Tasks")) {
+                    ForEach(self.assignmentList,id:\.self) {assignment in
+                        ZStack {
+                            NavigationLink(destination:StudyView(task: assignment)) {
+                                SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
+                            }.onLongPressGesture {
+                                self.mutiSelectMode = true
+                            }
                         }
-                    }
-                }.onDelete(perform: deleteTask)
+                    }.onDelete(perform: deleteTask)
+                }
+                
             }
-            
         }
     }
 }
