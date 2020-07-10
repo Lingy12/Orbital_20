@@ -15,6 +15,8 @@ struct TaskListView: View {
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     @State var showCreation = false
     @State var showStudy = false
+    @State var mutiSelectMode = false
+    var selection:[Int]?
     var module:String?
     
     
@@ -69,6 +71,17 @@ struct TaskListView: View {
         return count
     }
     
+    private func deleteTask(task:Task) {
+        let index = assignmentList.firstIndex(of: task)!
+        context.delete(assignmentList[index])
+        try? self.context.save()
+    }
+    
+    private func deleteSet(set:[Int]) {
+        for index in set.indices {
+            deleteTask(task: assignmentList[set[index]])
+        }
+    }
     private func getModuleAssignmentList() -> [Task] {
         var assignmentList:[Task] = []
         
@@ -102,10 +115,11 @@ struct TaskListView: View {
                     ZStack {
                         NavigationLink(destination:StudyView(task: assignment)) {
                             SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
+                        }.onLongPressGesture {
+                            self.mutiSelectMode = true
                         }
                     }
                 }.onDelete(perform: deleteTask)
-                
             }
             
         }

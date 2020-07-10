@@ -12,6 +12,7 @@ struct SingleTaskView: View {
     
     @ObservedObject var task:Task
     // @State var isComplete:Bool
+    var isselected:Bool = false
     
     var body: some View {
         Toggle(isOn: self.$task.isComplete) {
@@ -30,17 +31,6 @@ struct SingleTaskView: View {
                 Text(task.modName ?? "").font(.body).opacity(0.7)
             }
         }.toggleStyle(CheckboxStyle())
-      
-//        HStack {
-//            VStack {
-//                Text(task.name!).font(.headline)
-//                Text(dateToTime(date: task.due!)).font(.caption)
-//            }
-//
-//            Spacer()
-//
-//            Text(task.modName!).font(.body).opacity(0.7)
-//        }
     }
     
     func dateToTime(date:Date) -> String {
