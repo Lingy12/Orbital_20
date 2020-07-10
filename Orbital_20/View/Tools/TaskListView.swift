@@ -23,16 +23,19 @@ struct TaskListView: View {
     var body: some View {
         VStack {
             //Navigation view
-            if !self.showCreation {
-                if module == nil {
-                    NavigationView {
-                        if mutiSelectMode {
-                            taskList.navigationBarItems(trailing: deleteButton)
-                        } else {
-                            taskList.navigationBarItems(trailing: addButton)
-                        }
-                    }
-                } else {
+            Button(action:{
+                for index in self.assignmentList.indices {
+                    self.context.delete(self.assignmentList[index])
+                }
+                for index in self.moduleList.indices {
+                    self.context.delete(self.moduleList[index])
+                }
+                try? self.context.save()
+            }) {
+                Text("Reset")
+            }
+            if module == nil {
+                NavigationView {
                     if mutiSelectMode {
                         taskList.navigationBarItems(trailing: deleteButton)
                     } else {
@@ -40,12 +43,17 @@ struct TaskListView: View {
                     }
                 }
             } else {
-                    NewTaskView(showCreation: self.$showCreation, module: module)
-                        .transition(.scale)
-                        .animation(.linear)
+                if mutiSelectMode {
+                    taskList.navigationBarItems(trailing: deleteButton)
+                } else {
+                    taskList.navigationBarItems(trailing: addButton)
+                }
             }
+        }.sheet(isPresented: self.$showCreation) {
+            NewTaskView(showCreation: self.$showCreation,module: self.module)
         }
     }
+    
     
     private var addButton: some View {
         Button(action: {
@@ -143,8 +151,6 @@ struct TaskListView: View {
                             }.onLongPressGesture {
                                 self.mutiSelectMode = true
                             }
-                            .transition(.opacity)
-                            .animation(.linear(duration: 2))
                         }
                     }.onDelete(perform: deleteTask)
                 }

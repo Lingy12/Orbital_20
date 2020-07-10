@@ -23,51 +23,58 @@ struct NewTaskView: View {
     var module:String?
     
     var body: some View {
-        ZStack {
-            VStack {
+        
+        VStack {
+            HStack {
+                Spacer()
                 Button(action: {
                     self.showCreation.toggle()
-                }) {
-                    Image(systemName: "multiply.circle")
-                        .font(.title)
-                        .foregroundColor(.black)
+                },label: {
+                    Image(systemName: "chevron.down.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.blue)
                         .opacity(0.8)
-                }.frame(alignment: .center)
-                
-                Form {
-                    Section(header:Text(module == nil ? "Creating New Task" : "Creating new Task for \(module!)")) {
-                        if module == nil {
-                            TextField("Module Name",text: $moduleName)
-                        }
-                        TextField("New Task Name", text: $TaskName)
-                        DatePicker("Due", selection: $dueDate,in:Date()...)
-                        VStack {
-                            Text("Pick your time for this assignment")
-                            
-                            //                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
-                            TextField("Minutes",text: $planTime).keyboardType(.numberPad)
-                        }
+                }).padding(.trailing, 20)
+                    .padding(.top,15)
+                    .shadow(radius: 5)
+            }
+            
+//            padding(15)
+            
+            Form {
+                Section(header:Text(module == nil ? "Creating New Task" : "Creating new Task for \(module!)")) {
+                    if module == nil {
+                        TextField("Module Name",text: $moduleName)
+                    }
+                    TextField("New Task Name", text: $TaskName)
+                    DatePicker("Due", selection: $dueDate,in:Date()...)
+                    VStack {
+                        Text("Pick your time for this assignment")
                         
-                        DatePicker("Plan Date",selection: $planDate,in: Date()...)
+                        //                TimePicker(planHour:self.$planHour,planMinutes:self.$planMinutes)
+                        TextField("Minutes",text: $planTime).keyboardType(.numberPad)
                     }
                     
-                    Section {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 5)
-                                .foregroundColor(.blue)
+                    DatePicker("Plan Date",selection: $planDate,in: Date()...)
+                }
+                
+                Section {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(.blue)
+                        
+                        Button(action: {
+                            self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
+                            self.showCreation.toggle()
                             
-                            Button(action: {
-                                self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
-                                self.showCreation.toggle()
-                                
-                            }) {
-                                Text("save")
-                                    .foregroundColor(.black)
-                            }
+                        }) {
+                            Text("save")
+                                .foregroundColor(.black)
                         }
                     }
                 }
             }
+            
         }
     }
     
