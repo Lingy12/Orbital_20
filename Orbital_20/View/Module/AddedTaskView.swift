@@ -12,11 +12,11 @@ struct AddedTaskView: View {
     var moduleName:String
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var assignmentList:FetchedResults<Task>
-    
+    @State var mutiselectMode = false
     var body: some View {
         List {
             ForEach(self.getModuleAssignmentList(),id: \.self){ task in
-                SingleTaskView(task: task)//,isComplete: task.isComplete)
+                SingleTaskView(task: task,mutiselectMode: self.$mutiselectMode)//,isComplete: task.isComplete)
             }
         }
     }

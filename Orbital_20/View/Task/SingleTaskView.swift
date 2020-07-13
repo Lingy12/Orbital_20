@@ -13,11 +13,16 @@ struct SingleTaskView: View {
     @ObservedObject var task:Task
     // @State var isComplete:Bool
     var isselected:Bool = false
+    @Binding var mutiselectMode:Bool
     
     var body: some View {
         ZStack {
-            if isselected {
-                singleTask
+            if mutiselectMode {
+                if isselected {
+                    singleTask.opacity(0.5).foregroundColor(.blue)
+                } else {
+                    singleTask
+                }
             } else {
                 Toggle(isOn: self.$task.isComplete) {
                     singleTask
@@ -37,7 +42,7 @@ struct SingleTaskView: View {
             
             if isselected {
                 Image(systemName: "checkmark")
-                    .foregroundColor(.black)
+                    .foregroundColor(.blue)
             } else {
                 Circle()
                     .frame(width: 10, height: 10)
@@ -46,7 +51,7 @@ struct SingleTaskView: View {
                 Text(task.modName ?? "").font(.body).opacity(0.7)
             }
         }
-//        }.foregroundColor(isselected ? .gray : .white)
+        //        }.foregroundColor(isselected ? .gray : .white)
     }
     
     func dateToTime(date:Date) -> String {

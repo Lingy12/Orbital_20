@@ -20,16 +20,9 @@ struct NewModuleView: View {
     
     var body: some View {
         
-        ZStack {
+        VStack {
             
-            Button(action: {
-                self.showModcreation.toggle()
-            }) {
-                Image(systemName: "multiply.circle")
-                    .font(.title)
-                    .foregroundColor(.black)
-                    .opacity(0.8)
-            }.frame(alignment: .center)
+            backButton.frame(alignment:.leading)
             
             Form {
                 Section(header:Text("Add new module")) {
@@ -67,6 +60,7 @@ struct NewModuleView: View {
                 }
             }.sheet(isPresented: self.$showTaskCreation) {
                 NewTaskView(showCreation: self.$showTaskCreation,module:self.moduleName)
+                    .environment(\.managedObjectContext, self.context)
             }
             
         }
@@ -76,6 +70,17 @@ struct NewModuleView: View {
         let newModule = Module(context: context)
         newModule.moduleName = modname
         try? self.context.save()
+    }
+    
+    private var backButton:some View {
+          HStack {
+              Button(action: {
+                self.showModcreation.toggle()
+              }, label: {
+                  Image(systemName: "delete.left")
+                      .imageScale(.medium)
+              }).frame(alignment:.leading)
+          }
     }
     
     private func getModuleAssignmentList() -> [Task] {

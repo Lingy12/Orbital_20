@@ -127,11 +127,8 @@ struct NewTaskView: View {
     }
     
     private func haveMod(modname:String) -> Bool {
-        for index in self.moduleList.indices {
-            if moduleList[index].moduleName == modname {
-                return true
-            }
-        }
-        return false
+        return self.moduleList.contains(where:{ element in
+            element.moduleName! == moduleName
+        } )
     }
 }

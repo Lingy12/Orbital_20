@@ -16,7 +16,7 @@ struct TaskListView: View {
     @State var showCreation = false
     @State var showStudy = false
     @State var mutiSelectMode = false
-    var selection:[Int]?
+    @State var selection:[Task]?
     var module:String?
     
     
@@ -37,20 +37,21 @@ struct TaskListView: View {
             if module == nil {
                 NavigationView {
                     if mutiSelectMode {
-                        taskList.navigationBarItems(trailing: deleteButton)
+                        taskList.navigationBarItems(leading:doneButton,trailing: deleteButton)
                     } else {
-                        taskList.navigationBarItems(trailing: addButton)
+                        taskList.navigationBarItems(leading:editButton,trailing: addButton)
                     }
                 }
             } else {
                 if mutiSelectMode {
-                    taskList.navigationBarItems(trailing: deleteButton)
+                    taskList.navigationBarItems(leading:doneButton,trailing: deleteButton)
                 } else {
-                    taskList.navigationBarItems(trailing: addButton)
+                    taskList.navigationBarItems(leading:editButton,trailing: addButton)
                 }
             }
         }.sheet(isPresented: self.$showCreation) {
             NewTaskView(showCreation: self.$showCreation,module: self.module)
+                .environment(\.managedObjectContext, self.context)
         }
     }
     
@@ -65,11 +66,31 @@ struct TaskListView: View {
         }
     }
     
+    private var editButton:some View {
+        Button(action:{
+            self.mutiSelectMode = true
+            self.selection = [] //initialize the optional, so that it's safe to unwrap directly
+        }) {
+            Image(systemName: "square.and.pencil")
+                .foregroundColor(.blue)
+                .imageScale(.large)
+        }
+    }
+    
+    private var doneButton: some View {
+        Button(action:{
+            self.mutiSelectMode = false
+            self.selection = nil // Release all the selection
+        }) {
+            Text("Done").foregroundColor(.blue)
+        }
+    }
     private var deleteButton : some View {
         Button(action: {
             self.deleteSet(set: self.selection)
+            self.mutiSelectMode = false//toggle the mutiselect mod after deletion
         }) {
-            Text("Delete").foregroundColor(.red)
+            Text("Delete").foregroundColor(.blue)
         }
     }
     
@@ -123,16 +144,18 @@ struct TaskListView: View {
     }
     
     //TODO:Handle optional
-    private func deleteSet(set:[Int]?) {
+    private func deleteSet(set:[Task]?) {
         for index in set!.indices {
-            deleteTask(task: assignmentList[set![index]])
+            deleteTask(task: set![index])
         }
     }
+    
     private func getModuleAssignmentList() -> [Task] {
         var assignmentList:[Task] = []
         
+        
         for index in self.assignmentList.indices {
-            if self.assignmentList[index].modName == self.module ??  "" {
+            if self.assignmentList[index].modName == self.module ??  ""  || module == nil{
                 assignmentList.append(self.assignmentList[index])
             }
         }
@@ -144,12 +167,17 @@ struct TaskListView: View {
         VStack {
             List {
                 Section(header: Text("Tasks")) {
-                    ForEach(self.assignmentList,id:\.self) {assignment in
+                    ForEach(self.getModuleAssignmentList(),id:\.self) {assignment in
                         ZStack {
-                            NavigationLink(destination:StudyView(task: assignment)) {
-                                SingleTaskView(task: assignment)//,isComplete: assignment.isComplete)
-                            }.onLongPressGesture {
-                                self.mutiSelectMode = true
+                            if self.mutiSelectMode {
+                                SingleTaskView(task: assignment,isselected:self.selection!.contains(assignment), mutiselectMode: self.$mutiSelectMode)
+                                .onTapGesture(perform: {
+                                    self.selection?.append(assignment)
+                                })
+                            } else {
+                                NavigationLink(destination:StudyView(task: assignment)) {
+                                    SingleTaskView(task: assignment,mutiselectMode:self.$mutiSelectMode)//,isComplete: assignment.isComplete)
+                                }
                             }
                         }
                     }.onDelete(perform: deleteTask)
