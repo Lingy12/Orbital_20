@@ -35,9 +35,9 @@ We want to make a time management application for IOS, so that student can arran
 - List of assignments and categorize them.
 
 ## Extension Feature
-- Prioritize the assignment by the preference/importance of the module
-- Dividing the assignment into several subtasks
-- Reflection on the assignment, provide feedback, even recommendation
+- Entend the study time after the timer finish but the work haven't done
+- Notification when user quit the application and alert if the input is not in correct format
+- 
 - Giving statistic about how much time the user spent on a certain module
 
 ## Milestone #2
