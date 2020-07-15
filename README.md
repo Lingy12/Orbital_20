@@ -23,6 +23,6 @@ We want to make a time management application for IOS, so that student can arran
 ## Extension Feature
 - Entend the study time after the timer finish but the work haven't done
 - Notification when user quit the application and alert if the input is not in correct format
-- Giving statistic about how much time the user spent on a certain module
+- Giving statistic about how much time the user spent on a certain module and use pie chart to display it
 
 ## Milestone #3
