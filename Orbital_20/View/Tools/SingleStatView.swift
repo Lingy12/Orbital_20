@@ -21,7 +21,7 @@ struct SingleStatView: View {
     
     //TODO: Better Representation of the stats
     func intervalFormatter(interval:Double) -> String {
-        return String(format: "%.2f h", module.spentTime / 3600)
+        return String(format: "%f h", module.spentTime / 3600)
     }
 }
 

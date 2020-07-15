@@ -10,11 +10,27 @@ import SwiftUI
 
 struct StatsView: View {
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var modList:FetchedResults<Module>
-    
+    @State var showPie:Bool = false
     var body: some View {
-        List {
-            ForEach(modList,id:\.self) { mod in
-                SingleStatView(module: mod)
+        VStack {
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.showPie.toggle()
+                }, label: {
+                    Text(self.showPie ? "List View" : "Pie chart")
+                })
+            }.padding()
+            
+            if showPie {
+                Piechart()
+            } else {
+                List {
+                    ForEach(modList,id:\.self) { mod in
+                        SingleStatView(module: mod)
+                    }
+                }
             }
         }
     }

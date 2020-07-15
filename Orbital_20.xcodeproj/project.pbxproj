@@ -28,6 +28,7 @@
 		B8B4C98A24AE107B00E56030 /* SingleStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B4C98924AE107B00E56030 /* SingleStatView.swift */; };
 		B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */; };
 		B8C81FC724AACA92002312B6 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C81FC624AACA92002312B6 /* StatsView.swift */; };
+		B8CECFEC24BE8B0700B4E055 /* Piechart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CECFEB24BE8B0700B4E055 /* Piechart.swift */; };
 		B8F339F024AC2A2C00D193FB /* ModuleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		B8B4C98924AE107B00E56030 /* SingleStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStatView.swift; sourceTree = "<group>"; };
 		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
 		B8C81FC624AACA92002312B6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		B8CECFEB24BE8B0700B4E055 /* Piechart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piechart.swift; sourceTree = "<group>"; };
 		B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleListView.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/ModuleListView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 				B845CF0824A1898F00B9EA8F /* NewTaskView.swift */,
 				B8B4C98924AE107B00E56030 /* SingleStatView.swift */,
 				B8C81FC624AACA92002312B6 /* StatsView.swift */,
+				B8CECFEB24BE8B0700B4E055 /* Piechart.swift */,
 				0E8808DB249BEBC300F2C36E /* TaskListView.swift */,
 				B845CF0C24A1934C00B9EA8F /* TimerView.swift */,
 			);
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E8808DA249BEBBC00F2C36E /* StudyView.swift in Sources */,
+				B8CECFEC24BE8B0700B4E055 /* Piechart.swift in Sources */,
 				B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */,
 				B810E58124A593460000E3E6 /* TimePicker.swift in Sources */,
 				B845CF0924A1898F00B9EA8F /* NewTaskView.swift in Sources */,

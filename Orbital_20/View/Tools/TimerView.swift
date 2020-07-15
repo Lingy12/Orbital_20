@@ -64,6 +64,7 @@ struct TimerView: View {
             } else {
                 Button(action:{
                     self.showExtendPicker.toggle()
+                    self.updateModuleTIme(time: Date().timeIntervalSince(self.timerManager.startTime ?? Date()))
                 }) {
                     Text("Extend")
                 }
@@ -99,6 +100,7 @@ struct TimerView: View {
         let spent = self.modList[index!].spentTime
         self.modList[index!].spentTime = spent + time
         try? self.context.save()
+        print(self.modList[index!].spentTime)
     }
     
     func extend(for time:Int16) {
