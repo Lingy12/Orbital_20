@@ -34,8 +34,8 @@ struct SingleTaskView: View {
     var singleTask: some View {
         HStack {
             VStack{
-                Text(task.name ?? "").font(.headline)
-                Text(dateToTime(date: task.due ?? Date())).font(.caption)
+                Text(task.name ?? "").font(.headline).strikethrough(task.isComplete, color: .black)
+                Text(dateToTime(date: task.due ?? Date())).font(.caption).strikethrough(task.isComplete, color: .black)
             }
             
             Spacer()
@@ -48,7 +48,7 @@ struct SingleTaskView: View {
                     .frame(width: 10, height: 10)
                     .foregroundColor(.blue)
                 
-                Text(task.modName ?? "").font(.body).opacity(0.7)
+                Text(task.modName ?? "").font(.body).strikethrough(task.isComplete, color: .black)
             }
         }
         //        }.foregroundColor(isselected ? .gray : .white)

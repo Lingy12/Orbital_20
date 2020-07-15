@@ -24,7 +24,6 @@
 		B8755480247225F8005E2E47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B875547F247225F8005E2E47 /* Assets.xcassets */; };
 		B8755483247225F8005E2E47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8755482247225F8005E2E47 /* Preview Assets.xcassets */; };
 		B8755486247225F8005E2E47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8755484247225F8005E2E47 /* LaunchScreen.storyboard */; };
-		B891FEDB24B55CF100BE943A /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891FEDA24B55CF100BE943A /* PieChartView.swift */; };
 		B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EBC7124A2E6C90080C472 /* NewModuleView.swift */; };
 		B8B4C98A24AE107B00E56030 /* SingleStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B4C98924AE107B00E56030 /* SingleStatView.swift */; };
 		B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */; };
@@ -52,7 +51,6 @@
 		B8755482247225F8005E2E47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8755485247225F8005E2E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8755487247225F8005E2E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B891FEDA24B55CF100BE943A /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		B89EBC7124A2E6C90080C472 /* NewModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModuleView.swift; sourceTree = "<group>"; };
 		B8B4C98924AE107B00E56030 /* SingleStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStatView.swift; sourceTree = "<group>"; };
 		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				B810E58024A593460000E3E6 /* TimePicker.swift */,
 				B845CF0824A1898F00B9EA8F /* NewTaskView.swift */,
 				B8B4C98924AE107B00E56030 /* SingleStatView.swift */,
-				B891FEDA24B55CF100BE943A /* PieChartView.swift */,
 				B8C81FC624AACA92002312B6 /* StatsView.swift */,
 				0E8808DB249BEBC300F2C36E /* TaskListView.swift */,
 				B845CF0C24A1934C00B9EA8F /* TimerView.swift */,
@@ -261,7 +258,6 @@
 				B875547E247225F5005E2E47 /* ContentView.swift in Sources */,
 				B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */,
 				B845CF0D24A1934C00B9EA8F /* TimerView.swift in Sources */,
-				B891FEDB24B55CF100BE943A /* PieChartView.swift in Sources */,
 				B8755479247225F5005E2E47 /* SceneDelegate.swift in Sources */,
 				0E8808E0249BED4800F2C36E /* SingleTaskView.swift in Sources */,
 				0E8808DC249BEBC300F2C36E /* TaskListView.swift in Sources */,

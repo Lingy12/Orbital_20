@@ -21,6 +21,7 @@ struct NewTaskView: View {
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.due, ascending: true)]) var assignmentList:FetchedResults<Task>
     @FetchRequest(entity: Module.entity(), sortDescriptors: []) var moduleList:FetchedResults<Module>
     var module:String?
+    @State var showAlert = false
     
     var body: some View {
         
@@ -39,7 +40,7 @@ struct NewTaskView: View {
                     .shadow(radius: 5)
             }
             
-//            padding(15)
+            //            padding(15)
             
             Form {
                 Section(header:Text(module == nil ? "Creating New Task" : "Creating new Task for \(module!)")) {
@@ -64,12 +65,19 @@ struct NewTaskView: View {
                             .foregroundColor(.blue)
                         
                         Button(action: {
-                            self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
-                            self.showCreation.toggle()
-                            
+                            if (self.TaskName == "" || self.moduleName == "") {
+                                self.showAlert = true
+                            } else {
+                                self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
+                                self.showCreation.toggle()
+                            }
                         }) {
                             Text("save")
                                 .foregroundColor(.black)
+                        }.alert(isPresented: $showAlert) {
+                            Alert(title: Text("Input error"), message: Text("Some field is empty"), dismissButton: .default(Text("Got it"), action: {
+                                self.showAlert = false
+                            }))
                         }
                     }
                 }
@@ -101,16 +109,23 @@ struct NewTaskView: View {
         var daycomponent = DateComponents()
         daycomponent.day = -1
         let content = UNMutableNotificationContent()
+        
+        //set up the content
         content.title = "\(module)"
         content.body = "\(name) due in one day"
+        
+        //schedule the content to calendar
         let calendar = Calendar.current
         let nextTriggerDay = calendar.date(byAdding: daycomponent, to: date)!
         let triggerComp = Calendar.current.dateComponents([.year,.month,.day], from: nextTriggerDay)
+        
         //create trigger
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComp, repeats: false)
         //create request
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        
+        //create the nonification
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request, withCompletionHandler: nil)
         print("scheduled")
