@@ -62,6 +62,7 @@ We want to make a time management application for IOS, so that student can arran
 - **Schedule the notification one day before the due date**
 - **Schedule the notification at the planned time**
 - **Alert when using input an empty string at module name, task name or duration**
+- **Notify user when they backward to phone in study view**
 
 ### 3. Problem Encounter
 #### a. User Interface
@@ -70,3 +71,9 @@ We want to make a time management application for IOS, so that student can arran
 - Apply OOP principle on the UI file. Last month, we didn't care about the OOP principle. Now we solve this by abstract out some similar view into one file. Eg. TaskListView and ModuleTaskList, NewTaskView and ModuleTaskCreationView.
 
 - Nest navigation view. We fix nest navigation view by abstract out some navigationlinks, since we should only have one NavigationView from the parent view to the children view.
+
+#### b. Functionality
+- Implement extend but the timer does not work. This is because we need another state called *end*. In previous version, we only have 3 states, *initial, pause, running*. But we need the state *end* to implement function that can extend the timer when the current timer is over. Without this, some functions in timer will clash, since we cannot differentiate the *initial* and *end* states. In this case, we set the timer to *initial* when the time is set, and set the timer to *end* when the timer is over. So we only trigger the "extend" in *end* state. 
+
+- Creating new task cannot work using the sheet associate with view. When we use the sheet to present the view that display new task creation, the core data would have error. This is because the environment context is lost. We need to associate a environment variable to the sheet, so that core data is accessable inside sheet.
+
