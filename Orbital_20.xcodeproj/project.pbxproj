@@ -57,7 +57,7 @@
 		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
 		B8C81FC624AACA92002312B6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		B8CECFEB24BE8B0700B4E055 /* Piechart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piechart.swift; sourceTree = "<group>"; };
-		B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleListView.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/ModuleListView.swift"; sourceTree = "<group>"; };
+		B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleListView.swift; path = ../../../../../Orbital_20/Orbital_20/View/Module/ModuleListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
