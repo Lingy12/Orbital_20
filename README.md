@@ -77,3 +77,8 @@ We want to make a time management application for IOS, so that student can arran
 
 - Creating new task cannot work using the sheet associate with view. When we use the sheet to present the view that display new task creation, the core data would have error. This is because the environment context is lost. We need to associate a environment variable to the sheet, so that core data is accessable inside sheet.
 
+- At first I cannot collect the statistic from the timer. We play around with the date, and found that we can note down the start timer whenever the start button for timer is triggered. And collect the time using TimeInterval when the timer come to the end or paused button is triggered. Using this method, we can collect the time that the user spent on a certain module.
+
+- We tried to do mutiselect and delete using the build in function of core data, but we didn't achieve to do that. What we do is setting a new variable *mutiselectmode* to trigger a different represeation of the interface, and maintain a optional array to collect the task that needs to be deleted. In this way, when press the *delete* button under mutiselect mode, it will delete the task that has been selected. 
+
+- We tried to trigger the mutiselect mode by a longPressGesture. But we found it cannot work well (maybe is the problem with the simulator). So we just add a *edit* button on the TaskListView. 
