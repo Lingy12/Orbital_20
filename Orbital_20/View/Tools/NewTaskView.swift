@@ -65,7 +65,7 @@ struct NewTaskView: View {
                             .foregroundColor(.blue)
                         
                         Button(action: {
-                            if (self.TaskName == "" || self.moduleName == "") {
+                            if (self.TaskName == "" || (self.moduleName == "" && self.module == nil)) {
                                 self.showAlert = true
                             } else {
                                 self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
