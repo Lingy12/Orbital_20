@@ -24,12 +24,12 @@
 		B8755480247225F8005E2E47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B875547F247225F8005E2E47 /* Assets.xcassets */; };
 		B8755483247225F8005E2E47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8755482247225F8005E2E47 /* Preview Assets.xcassets */; };
 		B8755486247225F8005E2E47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8755484247225F8005E2E47 /* LaunchScreen.storyboard */; };
+		B892E0D524C1828300D45C81 /* ModuleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B892E0D424C1828300D45C81 /* ModuleListView.swift */; };
 		B89EBC7224A2E6C90080C472 /* NewModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EBC7124A2E6C90080C472 /* NewModuleView.swift */; };
 		B8B4C98A24AE107B00E56030 /* SingleStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B4C98924AE107B00E56030 /* SingleStatView.swift */; };
 		B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */; };
 		B8C81FC724AACA92002312B6 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C81FC624AACA92002312B6 /* StatsView.swift */; };
 		B8CECFEC24BE8B0700B4E055 /* Piechart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CECFEB24BE8B0700B4E055 /* Piechart.swift */; };
-		B8F339F024AC2A2C00D193FB /* ModuleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,12 +52,12 @@
 		B8755482247225F8005E2E47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8755485247225F8005E2E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8755487247225F8005E2E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B892E0D424C1828300D45C81 /* ModuleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleListView.swift; sourceTree = "<group>"; };
 		B89EBC7124A2E6C90080C472 /* NewModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModuleView.swift; sourceTree = "<group>"; };
 		B8B4C98924AE107B00E56030 /* SingleStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStatView.swift; sourceTree = "<group>"; };
 		B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTaskView.swift; sourceTree = "<group>"; };
 		B8C81FC624AACA92002312B6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		B8CECFEB24BE8B0700B4E055 /* Piechart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piechart.swift; sourceTree = "<group>"; };
-		B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleListView.swift; path = ../../../../../Orbital_20/Orbital_20/View/Module/ModuleListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				B89EBC7124A2E6C90080C472 /* NewModuleView.swift */,
-				B8F339EF24AC2A2C00D193FB /* ModuleListView.swift */,
+				B892E0D424C1828300D45C81 /* ModuleListView.swift */,
 				B8BCDFCA24A2F173006032BF /* AddedTaskView.swift */,
 				0EBC03EF24A1A78000633356 /* SingleModuleView.swift */,
 			);
@@ -246,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E8808DA249BEBBC00F2C36E /* StudyView.swift in Sources */,
+				B892E0D524C1828300D45C81 /* ModuleListView.swift in Sources */,
 				B8CECFEC24BE8B0700B4E055 /* Piechart.swift in Sources */,
 				B8755477247225F5005E2E47 /* AppDelegate.swift in Sources */,
 				B810E58124A593460000E3E6 /* TimePicker.swift in Sources */,
@@ -254,7 +255,6 @@
 				B845CF0B24A18FC300B9EA8F /* Timer.swift in Sources */,
 				B8B4C98A24AE107B00E56030 /* SingleStatView.swift in Sources */,
 				B8BCDFCB24A2F173006032BF /* AddedTaskView.swift in Sources */,
-				B8F339F024AC2A2C00D193FB /* ModuleListView.swift in Sources */,
 				B875547C247225F5005E2E47 /* Orbital_20.xcdatamodeld in Sources */,
 				0EE85EB924A27E67006F4E3D /* TimerManager.swift in Sources */,
 				0EBC03F024A1A78000633356 /* SingleModuleView.swift in Sources */,
