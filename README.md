@@ -41,7 +41,7 @@ We want to make a time management application for IOS, so that student can arran
   
  ### 2.Feature Implemented (Bold is the newly update for Milestone#3)
  #### a. User Interface  
-- **Using tab view to navigate between the 3 components
+- **Using tab view to navigate between the 3 components**
 - **Using a pie chart and a list representation of the statistic data (How much time you spent on certain module)**
 - **Using sheet as a better way to show the new task view**
 - **Fix the nested navigation view**
@@ -82,3 +82,5 @@ We want to make a time management application for IOS, so that student can arran
 - We tried to do mutiselect and delete using the build in function of core data, but we didn't achieve to do that. What we do is setting a new variable *mutiselectmode* to trigger a different represeation of the interface, and maintain a optional array to collect the task that needs to be deleted. In this way, when press the *delete* button under mutiselect mode, it will delete the task that has been selected. 
 
 - We tried to trigger the mutiselect mode by a longPressGesture. But we found it cannot work well (maybe is the problem with the simulator). So we just add a *edit* button on the TaskListView. 
+
+- Adding new task when creating new module will result in an unexpected alert. This is because I did not consider the situation when creating module, the module name has fixed. So one @State variable will be empty.
