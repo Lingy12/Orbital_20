@@ -67,20 +67,22 @@ struct NewModuleView: View {
     }
     
     private func addModule(for modname:String) {
-        let newModule = Module(context: context)
-        newModule.moduleName = modname
-        try? self.context.save()
+        if self.haveMod(modname: modname) {
+            let newModule = Module(context: context)
+            newModule.moduleName = modname
+            try? self.context.save()
+        }
     }
     
     private var backButton:some View {
-          HStack {
-              Button(action: {
+        HStack {
+            Button(action: {
                 self.showModcreation.toggle()
-              }, label: {
-                  Image(systemName: "delete.left")
-                      .imageScale(.medium)
-              }).frame(alignment:.leading)
-          }
+            }, label: {
+                Image(systemName: "delete.left")
+                    .imageScale(.medium)
+            }).frame(alignment:.leading)
+        }
     }
     
     private func getModuleAssignmentList() -> [Task] {
@@ -93,5 +95,11 @@ struct NewModuleView: View {
         }
         
         return assignmentList
+    }
+    
+    private func haveMod(modname:String) -> Bool {
+        return self.moduleList.contains(where:{ element in
+            element.moduleName! == modname
+        } )
     }
 }
