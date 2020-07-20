@@ -23,17 +23,17 @@ struct TaskListView: View {
     var body: some View {
         VStack {
             //Navigation view
-            Button(action:{
-                for index in self.assignmentList.indices {
-                    self.context.delete(self.assignmentList[index])
-                }
-                for index in self.moduleList.indices {
-                    self.context.delete(self.moduleList[index])
-                }
-                try? self.context.save()
-            }) {
-                Text("Reset")
-            }
+//            Button(action:{
+//                for index in self.assignmentList.indices {
+//                    self.context.delete(self.assignmentList[index])
+//                }
+//                for index in self.moduleList.indices {
+//                    self.context.delete(self.moduleList[index])
+//                }
+//                try? self.context.save()
+//            }) {
+//                Text("Reset")
+//            }
             if module == nil {
                 NavigationView {
                     if mutiSelectMode {

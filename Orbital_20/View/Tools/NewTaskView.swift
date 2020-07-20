@@ -68,7 +68,7 @@ struct NewTaskView: View {
                             if (self.TaskName == "" || (self.moduleName == "" && self.module == nil)) {
                                 self.showAlert = true
                             } else {
-                                self.addTask(due: self.dueDate, self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.moduleName)
+                                self.addTask(due: self.dueDate,self.TaskName, at: self.planDate, Int16(self.planTime) ?? 0,for:self.module == nil ? self.moduleName : self.module!)
                                 self.showCreation.toggle()
                             }
                         }) {
