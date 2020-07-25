@@ -84,3 +84,5 @@ We want to make a time management application for IOS, so that student can arran
 - We tried to trigger the mutiselect mode by a longPressGesture. But we found it cannot work well (maybe is the problem with the simulator). So we just add a *edit* button on the TaskListView. 
 
 - Adding new task when creating new module will result in an unexpected alert. This is because I did not consider the situation when creating module, the module name has fixed. So one @State variable will be empty.
+
+### 4. User Testing
