@@ -86,3 +86,21 @@ We want to make a time management application for IOS, so that student can arran
 - Adding new task when creating new module will result in an unexpected alert. This is because I did not consider the situation when creating module, the module name has fixed. So one @State variable will be empty.
 
 ### 4. User Testing
+We give our app to some user to perform certain task to understand the usability of the app.
+
+The task includes:
+- Add new module without any task
+- Add new task inside an added module
+- Add new task
+- Study using our study timer
+- View their statistic on the statistic view
+
+Findings:
+- Some users suggest that the view that is used to add new module is not well-looking. Maybe the label of the back button should be just plain text instead of the image.
+- It is quite easy to use the basic functionality, all users can figure out without any instruction
+- The statistic representation can give users a good idea about how they spend time on different modules.
+- Some users suggest that we should noted down the time spent on a certain task and next time they enter the app, the timer will be set to the time remaining for a certain task. But our intension is that user did not leave this page until they finish their plan time. This design does not think about the usability.
+- They think the tab view is a good way to represent the main page.
+
+Conclusion:
+The app is satisfactory since most users can use it easily and most functionality is good. But there are some UX design still need to be considered. 
