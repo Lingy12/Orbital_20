@@ -57,7 +57,7 @@ We want to make a time management application for IOS, so that student can arran
 - Setting the timer in the study view
 - **Extend the timer after current timer stop**
 - **Collect the statistic data for each module**
-- **Mutiselect the module and delete them**
+- **Multi-select the module and delete them**
 - **Ordering the task by the due date**
 
 #### c. Notification and Alert
