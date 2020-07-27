@@ -41,7 +41,7 @@ We want to make a time management application for IOS, so that student can arran
   
   **Solution**: Handle the optional by giving a default value (An empty string for each component)
   
- ### 2.Feature Implemented (Bold is newly update for Milestone#3)
+ ### 2.Feature Implemented (Bold are newly updated functions for Milestone#3)
  #### a. User Interface  
 - **Using tab view to navigate between the 3 components**
 - **Using a pie chart and a list representation of the statistic data (How much time you spent on certain module)**
@@ -72,7 +72,7 @@ We want to make a time management application for IOS, so that student can arran
 
 - Apply OOP principle on the UI file. Last month, we didn't care about the OOP principle. Now we solve this by abstract out some similar view into one file. Eg. TaskListView and ModuleTaskList, NewTaskView and ModuleTaskCreationView.
 
-- Nest navigation view. We fix the nest navigation view by abstract out some navigationlinks, since we should only have one NavigationView from the parent view to the children's view.
+- Nest navigation view. We fix the nest navigation view by abstract out some navigationlinks since we should only have one NavigationView from the parent view to the children's view.
 
 #### b. Functionality
 - Implement extend but the timer does not work. This is because we need another state called *end*. In the previous version, we only have 3 states, *initial, pause, running*. But we need the state *end* to implement a function that can extend the timer when the current timer is over. Without this, some functions in timer will clash, since we cannot differentiate the *initial* and *end* states. In this case, we set the timer to *initial* when the time is set, and set the timer to *end* when the timer is over. So we only trigger the "extend" in *end* state. 
@@ -81,7 +81,7 @@ We want to make a time management application for IOS, so that student can arran
 
 - At first, I cannot collect the statistic from the timer. We play around with the date and found that we can note down the start timer whenever the start button for the timer is triggered. And collect the time using TimeInterval when the timer comes to the end, or the pause button is triggered. Using this method, we can collect the time that the user spent on a certain module.
 
-- We tried to do multi-select and delete using the build-in function of core data, but we didn't achieve to do that. What we do is set a new variable *mutiselectmode* to trigger a different representation of the interface, and maintain an optional array to collect the task that needs to be deleted. In this way, when press the *delete* button under multi-select mode, it will delete the task that has been selected. 
+- We tried to do multi-select and delete using the build-in function of core data, but we didn't achieve to do that. What we do is set a new variable *multi-select mode* to trigger a different representation of the interface, and maintain an optional array to collect the task that needs to be deleted. In this way, when press the *delete* button under the multi-select mode, it will delete the task that has been selected. 
 
 - We tried to trigger the multi-select mode by a long-press gesture. But we found it cannot work well (maybe is the problem with the simulator). So we just add an *edit* button on the TaskListView. 
 
